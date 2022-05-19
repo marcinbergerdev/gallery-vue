@@ -1,13 +1,16 @@
 <template>
 <home-page></home-page>
+<app-header></app-header>
 </template>
 
 <script>
 import HomePage from "./components/mobile homepage/HomePage.vue";
+import AppHeader from './components/header/AppHeader.vue';
 
 export default {
 components: {
-   HomePage
+   HomePage,
+   AppHeader
 }
 }
 </script>

@@ -25,7 +25,7 @@ export default {};
 .homepage-header {
   min-height: 100vh;
   text-align: center;
-  background-color: #1e1e1e;
+  background-color: #4c4c4c;
   overflow: hidden;
 
   &__mobileBg {
