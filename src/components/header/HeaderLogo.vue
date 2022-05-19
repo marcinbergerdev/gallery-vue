@@ -1,15 +1,21 @@
 <template>
-   <h1 class='logo'>Galerion</h1>
+  <h1 class="logo">Galerion</h1>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style lang="scss" scoped>
-.logo{
-   color: #fff;
+.logo {
+   margin-right: 30px;
+  font-size: 2.5rem;
+  font-family: "Grape Nuts", cursive;
+  text-decoration: none;
+  color: #fff;
+
+  @media (min-width: 768px) {
+    font-size: 4rem;
+  }
 }
 </style>

@@ -35,7 +35,7 @@ export default {
    width: 100%;
    padding: 1rem;
 
-   // background-color: black;
+   background-color: black;
 }
 
 .logo-languages{

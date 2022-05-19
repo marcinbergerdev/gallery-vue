@@ -29,4 +29,14 @@ components: {
   font-family: "Roboto", sans-serif;
 }
 
+.registration-link{
+  margin: 0 20px;
+  padding: 3px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+
+
+}
 </style>

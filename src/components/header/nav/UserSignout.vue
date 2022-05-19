@@ -1,5 +1,5 @@
 <template>
-   <a href="#">Sign out</a>
+   <a href="#" class='registration-link'>Sign out</a>
 </template>
 
 <script>

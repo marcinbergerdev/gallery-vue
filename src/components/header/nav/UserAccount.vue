@@ -1,5 +1,7 @@
 <template>
-   <Icon icon="ant-design:user-outlined" />
+   <a href="#">
+      <Icon class='user-icon' icon="ant-design:user-outlined" />
+   </a>
 </template>
 
 <script>
@@ -12,6 +14,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.user-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 20px;
+  color: #fff;
+}
 
 </style>
