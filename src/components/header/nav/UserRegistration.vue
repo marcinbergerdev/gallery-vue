@@ -1,5 +1,5 @@
 <template>
-   <article class='registration-container'>
+   <article>
       <a href="#" class='registration-link'>Log in</a>
       <a href="#" class='registration-link'>Sign in</a>
    </article>
@@ -12,8 +12,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.registration-container{
-
-}
 
 </style>

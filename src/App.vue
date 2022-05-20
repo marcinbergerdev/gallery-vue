@@ -1,16 +1,21 @@
 <template>
 <home-page></home-page>
 <app-header></app-header>
+<main>
+  <app-main></app-main>
+</main>
 </template>
 
 <script>
 import HomePage from "./components/mobile homepage/HomePage.vue";
 import AppHeader from './components/header/AppHeader.vue';
+import AppMain from './components/main/AppMain.vue';
 
 export default {
 components: {
    HomePage,
-   AppHeader
+   AppHeader,
+   AppMain
 }
 }
 </script>
@@ -36,6 +41,33 @@ components: {
   text-decoration: none;
   color: #fff;
   border-bottom: 1px solid #fff;
+
+  @media (min-width: 768px){
+    position: relative;
+    border: 0;
+
+
+    &::before{
+      content: "";
+      display: block;
+      position: absolute;
+      top: 34%;
+      left: -26%;
+
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      opacity: 0.4;
+      transition: transform 0.2s ease-in-out;
+
+    }
+      &:hover{
+        &::before{
+          transform: translate(26%, -32%);
+          transition: transform 0.2s ease-in-out;
+        }
+      }
+  }
 
 
 }

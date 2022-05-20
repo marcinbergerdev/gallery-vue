@@ -34,8 +34,11 @@ export default {
    align-items: center;
    width: 100%;
    padding: 1rem;
+   background-color: transparent;
 
-   background-color: black;
+   @media(min-width: 768px){
+    background-color: #000;
+   }
 }
 
 .logo-languages{
