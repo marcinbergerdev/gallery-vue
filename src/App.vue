@@ -8,6 +8,7 @@
 import HomePage from "./components/mobile homepage/HomePage.vue";
 import AppHeader from "./components/header/AppHeader.vue";
 import AppMain from "./components/main/AppMain.vue";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 export default {
   components: {
@@ -15,27 +16,33 @@ export default {
     AppHeader,
     AppMain,
   },
-  provide(){
+  provide() {
     return {
       toggleMenu: this.toggleHamburgerAndMenu,
-    }
+    };
   },
-  data(){
+  data() {
     return {
       hamburger: false,
-      navMenu: false
-    }
+      navMenu: false,
+      targetScrollElement: null,
+    };
   },
   methods: {
-    toggleHamburgerAndMenu(){
+    toggleHamburgerAndMenu() {
       this.hamburger = !this.hamburger;
       this.navMenu = !this.navMenu;
 
-    }
-  }
-
-
-
+      if (this.targetScrollElement.style.overflow !== "hidden") {
+        disableBodyScroll(this.targetScrollElement);
+      } else {
+        enableBodyScroll(this.targetScrollElement);
+      }
+    },
+  },
+  created() {
+    this.targetScrollElement = document.querySelector("body");
+  },
 };
 </script>
 

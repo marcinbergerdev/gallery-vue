@@ -31,12 +31,13 @@ export default {
 .nav {
   position: fixed;
   top: 0;
-  left: 100%;
+  left: 150%;
+  transform: rotate(50deg);
   width: 100%;
   height: 100%;
   background-color: #000;
   opacity: 0.95;
-  transition: 0.2s ease-in-out;
+  transition: 0.4s ease-in-out;
 
   &__list {
     display: flex;
@@ -53,6 +54,8 @@ export default {
     width: auto;
     height: auto;
     opacity: 1;
+    transform: none;
+    transition: all 0s ease 0s;
 
     &__list {
       display: block;
@@ -61,8 +64,8 @@ export default {
 }
 
 .nav-open {
-  transform: translateX(-100%);
-  transition: transform 0.2s ease-in-out;
+  transform: translateX(-150%);
+  transition: transform 0.4s ease-in-out;
 
   @media (min-width: 768px) {
     transform: none;

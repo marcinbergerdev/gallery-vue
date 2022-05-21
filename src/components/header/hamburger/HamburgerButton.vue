@@ -9,14 +9,7 @@
 
 
 <script>
-// import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-
 export default {
-  data() {
-    return {
-      targetElement: null,
-    };
-  },
   inject: ["toggleMenu"],
   props: {
     hamburgerActivity: {
@@ -25,9 +18,9 @@ export default {
     },
   },
   computed: {
-    active(){
-      return {active: this.hamburgerActivity}
-    }
+    active() {
+      return { active: this.hamburgerActivity };
+    },
   },
 };
 </script>
