@@ -1,33 +1,35 @@
 <template>
-  <main class='main-content'>
+  <main class="main-content">
     <nav-list :navMenuActivity="this.navMenuActivity"></nav-list>
     <pages-list></pages-list>
   </main>
-
 </template>
 
 <script>
 import NavList from "./navbar/NavList.vue";
-import PagesList from "./pages/PagesList.vue";
+import PagesList from "./pages/PhotosList.vue";
 
 export default {
   components: {
     NavList,
     PagesList,
   },
-  props: ["navMenuActivity"]
+  props: ["navMenuActivity"],
+
+  data() {
+    return {
+    };
+  },
 };
 </script>
 
 <style lang="scss">
-.main-content{
+.main-content {
+  width: 100%;
 
-   width: 100%;
-
-   @media(min-width: 768px){
-      display: flex;
-      min-height: calc(100vh - 70px);
-   }
+  @media (min-width: 768px) {
+    display: flex;
+    min-height: calc(100vh - 70px);
+  }
 }
-
 </style>

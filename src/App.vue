@@ -19,6 +19,7 @@ export default {
   provide() {
     return {
       toggleMenu: this.toggleHamburgerAndMenu,
+      menuLinks: this.menuLinks,
     };
   },
   data() {
@@ -26,6 +27,14 @@ export default {
       hamburger: false,
       navMenu: false,
       targetScrollElement: null,
+      menuLinks: [
+        { id: "m1", name: "Nature" },
+        { id: "m2", name: "Random" },
+        { id: "m3", name: "Dogs" },
+        { id: "m4", name: "Cats" },
+        { id: "m5", name: "Fruits" },
+        { id: "m6", name: "Coctails" },
+      ],
     };
   },
   methods: {
@@ -33,6 +42,7 @@ export default {
       this.hamburger = !this.hamburger;
       this.navMenu = !this.navMenu;
 
+      // ScrollBlocked
       if (this.targetScrollElement.style.overflow !== "hidden") {
         disableBodyScroll(this.targetScrollElement);
       } else {

@@ -1,7 +1,12 @@
 <template>
   <nav class="nav" :class="active">
     <ul class="nav__list">
-      <nav-item></nav-item>
+      <nav-item
+        v-for="link in menuLinks"
+        :key="link.id"
+        :id="link.id"
+        :name="link.name"
+      ></nav-item>
     </ul>
   </nav>
 </template>
@@ -15,14 +20,15 @@ export default {
   },
   props: {
     navMenuActivity: {
-     type: Boolean,
-     required: true
-    }
+      type: Boolean,
+      required: true,
+    },
   },
+  inject: ["menuLinks"],
   computed: {
-    active(){
-      return {"nav-open": this.navMenuActivity}
-    }
+    active() {
+      return { "nav-open": this.navMenuActivity };
+    },
   },
 };
 </script>

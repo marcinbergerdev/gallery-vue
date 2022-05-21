@@ -1,22 +1,30 @@
 <template>
-  <li class="link">Natur</li>
-  <li class="link">Random</li>
-  <li class="link">Dogs</li>
-  <li class="link">Cats</li>
-  <li class="link">Fruits</li>
-  <li class="link">Coctails</li>
+  <a class='link' href="#"> {{ name }}</a>
 </template>
 
 <script>
-export default {};
+export default {
+props: {
+  id: {
+    type: String,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  }
+}
+};
 </script>
 
 <style lang="scss">
 .link {
+  display: block;
   padding: 10px;
   font-size: 2rem;
   list-style: none;
   color: #fff;
+  text-decoration: none;
 
   @media (orientation: landscape) {
     padding: 5px;
