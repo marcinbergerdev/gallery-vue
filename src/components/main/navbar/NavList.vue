@@ -39,6 +39,7 @@ export default {
   top: 0;
   left: 200%;
   transform: rotate(50deg);
+  z-index: 50;
   width: 100%;
   height: 100%;
   background-color: #000;
