@@ -1,9 +1,8 @@
 <template>
 <home-page></home-page>
 <app-header></app-header>
-<main>
-  <app-main></app-main>
-</main>
+<app-main></app-main>
+
 </template>
 
 <script>

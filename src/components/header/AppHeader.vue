@@ -29,6 +29,7 @@ export default {
    position: fixed;
    top: 0;
    left: 0;
+   z-index: 1;
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -37,6 +38,8 @@ export default {
    background-color: transparent;
 
    @media(min-width: 768px){
+    position: static;
+    min-height: 70px;
     background-color: #000;
    }
 }

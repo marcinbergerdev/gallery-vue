@@ -1,27 +1,49 @@
 <template>
   <button
-    class="hamburger" :class="hamburgerActive" @click="changeActiveStatus">
+    class="hamburger"
+    :class="hamburgerActive"
+    @click="changeActiveStatus"
+  >
     <span class="hamburger__box">
       <span class="hamburger__box-line"></span>
     </span>
   </button>
 </template>
+
+
+
 <script>
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+
 export default {
   data() {
     return {
       activity: false,
+      targetElement: null,
     };
   },
   methods: {
     changeActiveStatus() {
       this.activity = !this.activity;
+
+      console.log(this.targetElement);
+
+      if (this.targetElement.style.overflow !== "hidden") {
+        disableBodyScroll(this.targetElement);
+      } else {
+        enableBodyScroll(this.targetElement);
+      }
+
+
     },
   },
   computed: {
     hamburgerActive() {
       return { active: this.activity };
     },
+  },
+  created() {
+    this.targetElement = document.querySelector("body");
   },
 };
 </script>
@@ -73,7 +95,7 @@ export default {
   }
 
   @media (min-width: 768px) {
-   //  display: none;
+    //  display: none;
   }
 }
 
