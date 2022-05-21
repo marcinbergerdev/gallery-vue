@@ -1,22 +1,42 @@
 <template>
-<home-page></home-page>
-<app-header></app-header>
-<app-main></app-main>
-
+  <home-page></home-page>
+  <app-header :hamburgerActivity="this.hamburger"></app-header>
+  <app-main :navMenuActivity="this.navMenu"></app-main>
 </template>
 
 <script>
 import HomePage from "./components/mobile homepage/HomePage.vue";
-import AppHeader from './components/header/AppHeader.vue';
-import AppMain from './components/main/AppMain.vue';
+import AppHeader from "./components/header/AppHeader.vue";
+import AppMain from "./components/main/AppMain.vue";
 
 export default {
-components: {
-   HomePage,
-   AppHeader,
-   AppMain
-}
-}
+  components: {
+    HomePage,
+    AppHeader,
+    AppMain,
+  },
+  provide(){
+    return {
+      toggleMenu: this.toggleHamburgerAndMenu,
+    }
+  },
+  data(){
+    return {
+      hamburger: false,
+      navMenu: false
+    }
+  },
+  methods: {
+    toggleHamburgerAndMenu(){
+      this.hamburger = !this.hamburger;
+      this.navMenu = !this.navMenu;
+
+    }
+  }
+
+
+
+};
 </script>
 
 <style lang="scss">
@@ -33,7 +53,7 @@ components: {
   font-family: "Roboto", sans-serif;
 }
 
-.registration-link{
+.registration-link {
   margin: 0 20px;
   padding: 3px;
   font-size: 1.5rem;
@@ -41,12 +61,11 @@ components: {
   color: #fff;
   border-bottom: 1px solid #fff;
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     position: relative;
     border: 0;
 
-
-    &::before{
+    &::before {
       content: "";
       display: block;
       position: absolute;
@@ -58,16 +77,13 @@ components: {
       background-color: #fff;
       opacity: 0.4;
       transition: transform 0.2s ease-in-out;
-
     }
-      &:hover{
-        &::before{
-          transform: translate(26%, -32%);
-          transition: transform 0.2s ease-in-out;
-        }
+    &:hover {
+      &::before {
+        transform: translate(26%, -32%);
+        transition: transform 0.2s ease-in-out;
       }
+    }
   }
-
-
 }
 </style>

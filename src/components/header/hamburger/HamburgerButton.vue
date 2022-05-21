@@ -1,9 +1,5 @@
 <template>
-  <button
-    class="hamburger"
-    :class="hamburgerActive"
-    @click="changeActiveStatus"
-  >
+  <button class="hamburger" :class="active" @click="toggleMenu">
     <span class="hamburger__box">
       <span class="hamburger__box-line"></span>
     </span>
@@ -13,37 +9,25 @@
 
 
 <script>
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+// import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 export default {
   data() {
     return {
-      activity: false,
       targetElement: null,
     };
   },
-  methods: {
-    changeActiveStatus() {
-      this.activity = !this.activity;
-
-      console.log(this.targetElement);
-
-      if (this.targetElement.style.overflow !== "hidden") {
-        disableBodyScroll(this.targetElement);
-      } else {
-        enableBodyScroll(this.targetElement);
-      }
-
-
+  inject: ["toggleMenu"],
+  props: {
+    hamburgerActivity: {
+      type: Boolean,
+      required: true,
     },
   },
   computed: {
-    hamburgerActive() {
-      return { active: this.activity };
-    },
-  },
-  created() {
-    this.targetElement = document.querySelector("body");
+    active(){
+      return {active: this.hamburgerActivity}
+    }
   },
 };
 </script>
@@ -95,7 +79,7 @@ export default {
   }
 
   @media (min-width: 768px) {
-    //  display: none;
+    display: none;
   }
 }
 

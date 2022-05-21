@@ -5,7 +5,7 @@
       <header-languages></header-languages>
     </section>
 
-    <header-nav></header-nav>
+    <header-nav :hamburgerActivity="this.hamburgerActivity"></header-nav>
   </header>
 </template>
 
@@ -20,6 +20,7 @@ export default {
     HeaderLanguages,
     HeaderNav,
   },
+  props: ["hamburgerActivity"]
 };
 </script>
 

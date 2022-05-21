@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav">
+  <nav class="nav" :class="active">
     <ul class="nav__list">
       <nav-item></nav-item>
     </ul>
@@ -13,6 +13,17 @@ export default {
   components: {
     NavItem,
   },
+  props: {
+    navMenuActivity: {
+     type: Boolean,
+     required: true
+    }
+  },
+  computed: {
+    active(){
+      return {"nav-open": this.navMenuActivity}
+    }
+  },
 };
 </script>
 
@@ -20,12 +31,12 @@ export default {
 .nav {
   position: fixed;
   top: 0;
-  left: 0;
-  display: block;
+  left: 100%;
   width: 100%;
   height: 100%;
   background-color: #000;
   opacity: 0.95;
+  transition: 0.2s ease-in-out;
 
   &__list {
     display: flex;
@@ -43,9 +54,19 @@ export default {
     height: auto;
     opacity: 1;
 
-    &__list{
+    &__list {
       display: block;
     }
+  }
+}
+
+.nav-open {
+  transform: translateX(-100%);
+  transition: transform 0.2s ease-in-out;
+
+  @media (min-width: 768px) {
+    transform: none;
+    transition: all 0s ease 0s;
   }
 }
 </style>
