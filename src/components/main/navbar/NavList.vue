@@ -31,7 +31,7 @@ export default {
 .nav {
   position: fixed;
   top: 0;
-  left: 150%;
+  left: 200%;
   transform: rotate(50deg);
   width: 100%;
   height: 100%;
@@ -64,7 +64,7 @@ export default {
 }
 
 .nav-open {
-  transform: translateX(-150%);
+  transform: translateX(-200%);
   transition: transform 0.4s ease-in-out;
 
   @media (min-width: 768px) {
