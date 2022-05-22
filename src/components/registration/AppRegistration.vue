@@ -76,8 +76,14 @@ export default {
     border-radius: 25px;
     box-shadow: 0px 0px 20px 2px #212121;
 
-    @media (min-width: 768px) {
+    @media (orientation: landscape) {
       max-width: 500px;
+      padding: 10px 30px;
+    }
+
+    @media (min-width: 900px) and (orientation: landscape) {
+      padding: 25px 25px 55px 25px;
+
     }
   }
 
