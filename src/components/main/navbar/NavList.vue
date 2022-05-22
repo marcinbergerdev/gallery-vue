@@ -66,6 +66,8 @@ export default {
 
     &__list {
       display: block;
+      height: calc(100vh - 7rem);
+      overflow: auto;
     }
   }
 }

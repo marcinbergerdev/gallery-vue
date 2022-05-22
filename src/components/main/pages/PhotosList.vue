@@ -1,80 +1,30 @@
 <template>
   <ul class="photos-list">
-    <!-- <page-item></page-item> -->
-    <li>
-      <article class="photos">
-        <div class="photos__img">
-          <img class="img" src="../../../assets/zdj1.jpg" alt="" />
-        </div>
-        <button class="photos__addButton">Add</button>
-      </article>
-    </li>
-
-    <li>
-      <article class="photos">
-        <div class="photos__img">
-          <img class="img" src="../../../assets/zdj2.jpg" alt="" />
-        </div>
-        <button class="photos__addButton">Add</button>
-      </article>
-    </li>
-    <li>
-      <article class="photos">
-        <div class="photos__img">
-          <img class="img" src="../../../assets/zdj3.jpg" alt="" />
-        </div>
-        <button class="photos__addButton">Add</button>
-      </article>
-    </li>
-    <li>
-      <article class="photos">
-        <div class="photos__img">
-          <img class="img" src="../../../assets/zdj4.jpg" alt="" />
-        </div>
-        <button class="photos__addButton">Add</button>
-      </article>
-    </li>
-    <li>
-      <article class="photos">
-        <div class="photos__img">
-          <img class="img" src="../../../assets/zdj5.jpg" alt="" />
-        </div>
-        <button class="photos__addButton">Add</button>
-      </article>
-    </li>
-    <li>
-      <article class="photos">
-        <div class="photos__img">
-          <img class="img" src="../../../assets/zdj6.jpg" alt="" />
-        </div>
-        <button class="photos__addButton">Add</button>
-      </article>
-    </li>
-    <li>
-      <article class="photos">
-        <div class="photos__img">
-          <img class="img" src="../../../assets/zdj8.jpg" alt="" />
-        </div>
-        <button class="photos__addButton">Add</button>
-      </article>
-    </li>
-    <li>
-      <article class="photos">
-        <div class="photos__img">
-          <img class="img" src="../../../assets/zdj9.jpg" alt="" />
-        </div>
-        <button class="photos__addButton">Add</button>
-      </article>
-    </li>
+    <photos-item v-for="photo in photos" :key="photo.id" :id="photo.id" :link="photo.link"></photos-item>
   </ul>
 </template>
 
 <script>
-// import PageItem from "./PagesItem.vue";
+import PhotosItem from "./PhotosItem.vue";
+
 
 export default {
   components: {
-    // PageItem,
+    PhotosItem,
+  },
+  data() {
+    return {
+      photos: [
+        { id: "1", link: "../../../assets/zdj1.jpg" },
+        { id: "2", link: "../../../assets/zdj2.jpg" },
+        { id: "3", link: "../../../assets/zdj3.jpg" },
+        { id: "4", link: "../../../assets/zdj4.jpg" },
+        { id: "5", link: "../../../assets/zdj5.jpg" },
+        { id: "6", link: "../../../assets/zdj6.jpg" },
+        { id: "7", link: "../../../assets/zdj7.jpg" },
+        { id: "8", link: "../../../assets/zdj8.jpg" },
+      ],
+    };
   },
 };
 </script>
@@ -94,6 +44,7 @@ ul li {
   padding: 15rem 0;
   background-image: linear-gradient(329deg, #b9b9b9, #fff, #b9b9b9);
 
+
   @media (min-width: 768px) {
     flex-direction: row;
     flex-flow: row wrap;
@@ -104,84 +55,5 @@ ul li {
     padding: 12rem;
     overflow: auto;
   }
-}
-
-.photos {
-  display: flex;
-  flex-direction: column;
-
-  &__img {
-    position: relative;
-    width: 25rem;
-    height: 25rem;
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      display: block;
-      width: 200px;
-      height: 1px;
-      background: #000;
-    }
-
-    &::before {
-      top: -9%;
-      left: -17%;
-    }
-
-    &::after {
-      top: 21%;
-      left: -49%;
-      transform: rotate(90deg);
-    }
-  }
-
-  &__addButton {
-    position: relative;
-    margin-top: 2rem;
-    padding: 0.6rem;
-    width: 5rem;
-    align-self: flex-end;
-    background-color: #000;
-    color: #fff;
-    border: 0;
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      display: block;
-      width: 200px;
-      height: 1px;
-      background: #000;
-    }
-
-    &::before {
-      top: 160%;
-    left: -205%;
-    }
-
-    &::after {
-      top: -140%;
-    left: -45%;
-      transform: rotate(90deg);
-    }
-
-    @media (min-width: 768px) {
-      cursor: pointer;
-    }
-  }
-}
-
-.img {
-  width: 100%;
-  height: 100%;
 }
 </style>
