@@ -1,6 +1,6 @@
 <template>
   <main class="main-content">
-    <nav-list :navMenuActivity="this.navMenuActivity"></nav-list>
+    <nav-list :activation="this.activation"></nav-list>
     <pages-list></pages-list>
   </main>
 </template>
@@ -14,7 +14,7 @@ export default {
     NavList,
     PagesList,
   },
-  props: ["navMenuActivity"],
+  props: ["activation"],
 
   data() {
     return {

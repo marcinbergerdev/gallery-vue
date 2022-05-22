@@ -5,7 +5,7 @@
       <header-languages></header-languages>
     </section>
 
-    <header-nav :hamburgerActivity="this.hamburgerActivity"></header-nav>
+    <header-nav :activation="this.activation"></header-nav>
   </header>
 </template>
 
@@ -20,7 +20,7 @@ export default {
     HeaderLanguages,
     HeaderNav,
   },
-  props: ["hamburgerActivity"]
+  props: ["activation"]
 };
 </script>
 

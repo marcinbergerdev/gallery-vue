@@ -1,20 +1,28 @@
 <template>
-  <home-page></home-page>
-  <app-header :hamburgerActivity="this.hamburger"></app-header>
-  <app-main :navMenuActivity="this.navMenu"></app-main>
+  <router-view name="homepage"></router-view>
+  <router-view name="header" :activation="this.activation"></router-view>
+  <router-view :activation="this.activation"></router-view>
+
+  <!-- <home-page></home-page>
+  <app-header :activation="this.activation"></app-header>
+  <router-view :activation="this.activation"></router-view> -->
+
+
+
+  <!-- <app-main :activation="this.activation"></app-main> -->
 </template>
 
 <script>
-import HomePage from "./components/mobile homepage/HomePage.vue";
-import AppHeader from "./components/header/AppHeader.vue";
-import AppMain from "./components/main/AppMain.vue";
+// import HomePage from "./components/mobile homepage/HomePage.vue";
+// import AppHeader from "./components/header/AppHeader.vue";
+// import AppMain from "./components/main/AppMain.vue";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 export default {
   components: {
-    HomePage,
-    AppHeader,
-    AppMain,
+    // HomePage,
+    // AppHeader,
+    // AppMain,
   },
   provide() {
     return {
@@ -24,8 +32,7 @@ export default {
   },
   data() {
     return {
-      hamburger: false,
-      navMenu: false,
+      activation: false,
       targetScrollElement: null,
       menuLinks: [
         { id: "m1", name: "Nature" },
@@ -39,8 +46,7 @@ export default {
   },
   methods: {
     toggleHamburgerAndMenu() {
-      this.hamburger = !this.hamburger;
-      this.navMenu = !this.navMenu;
+      this.activation = !this.activation
 
       // ScrollBlocked
       if (this.targetScrollElement.style.overflow !== "hidden") {

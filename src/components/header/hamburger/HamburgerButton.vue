@@ -12,14 +12,14 @@
 export default {
   inject: ["toggleMenu"],
   props: {
-    hamburgerActivity: {
+    activation: {
       type: Boolean,
       required: true,
     },
   },
   computed: {
     active() {
-      return { active: this.hamburgerActivity };
+      return { active: this.activation };
     },
   },
 };

@@ -19,7 +19,7 @@ export default {
     NavItem,
   },
   props: {
-    navMenuActivity: {
+    activation: {
       type: Boolean,
       required: true,
     },
@@ -27,7 +27,7 @@ export default {
   inject: ["menuLinks"],
   computed: {
     active() {
-      return { "nav-open": this.navMenuActivity };
+      return { "nav-open": this.activation };
     },
   },
 };
@@ -43,7 +43,7 @@ export default {
   width: 100%;
   height: 100%;
   background-color: #000;
-  opacity: 0.95;
+  opacity: 0;
   transition: 0.4s ease-in-out;
 
   &__list {
@@ -75,6 +75,8 @@ export default {
 .nav-open {
   transform: translateX(-200%);
   transition: transform 0.4s ease-in-out;
+  opacity: 1;
+
 
   @media (min-width: 768px) {
     transform: none;

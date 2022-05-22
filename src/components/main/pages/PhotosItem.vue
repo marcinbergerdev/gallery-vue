@@ -2,9 +2,9 @@
    <li>
       <article class="photos">
         <div class="photos__img">
-          <img class="img" :src="link" alt="photo" />
+          <img class="img" src="" alt="photo" />
         </div>
-        <button class="photos__addButton">Add</button>
+        <button class="photos__addButton" @click="test">Add</button>
       </article>
     </li>
 </template>
@@ -23,6 +23,11 @@ props: {
       type: String,
       required: true
    }
+},
+methods: {
+  test(){
+    console.log(this.link);
+  }
 }
 }
 </script>

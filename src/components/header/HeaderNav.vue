@@ -1,26 +1,23 @@
 <template>
   <section class="nav-container">
-    <!-- <user-registration></user-registration>
-      <user-account></user-account>
-      <user-signout></user-signout> -->
-    <hamburger-button :hamburgerActivity="this.hamburgerActivity"></hamburger-button>
+    <router-view :activation="this.activation"></router-view>
+
+
+
+    <hamburger-button :activation="this.activation"></hamburger-button>
   </section>
 </template>
 
 <script>
-// import UserRegistration from './nav/UserRegistration.vue';
-// import UserAccount from './nav/UserAccount.vue';
-// import UserSignout from './nav/UserSignout.vue';
+
 import HamburgerButton from "./hamburger/HamburgerButton.vue";
 
 export default {
   components: {
-    // UserRegistration,
-    // UserAccount,
-    // UserSignout,
+
     HamburgerButton,
   },
-  props: ["hamburgerActivity"]
+  props: ["activation"]
 };
 </script>
 
