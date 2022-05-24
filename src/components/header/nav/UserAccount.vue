@@ -1,7 +1,7 @@
 <template>
-   <a href="#">
+   <router-link to="/home/user/mygallery">
       <Icon class='user-icon' icon="ant-design:user-outlined" />
-   </a>
+   </router-link>
 </template>
 
 <script>

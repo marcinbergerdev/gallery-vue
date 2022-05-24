@@ -1,7 +1,7 @@
 <template>
   <section class="nav-container">
+    <router-view name="myaccount"></router-view>
     <router-view :activation="this.activation"></router-view>
-
 
 
     <hamburger-button :activation="this.activation"></hamburger-button>

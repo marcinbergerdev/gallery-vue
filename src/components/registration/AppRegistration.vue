@@ -16,7 +16,7 @@
     </template>
 
     <template #sendBtn>
-      <button class="sendButton">Create</button>
+      <router-link class='sendButton' to="/home">Create</router-link>
     </template>
   </registration-card>
 </template>
@@ -50,10 +50,13 @@ input:focus {
 .sendButton {
   margin-top: 45px;
   padding: 9px 0;
+  font-size: 1.4rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #000;
   border-radius: 5px;
   border: 0;
-  background-color: #000;
-  color: #fff;
 
   @media (orientation: landscape) {
     margin-top: 15px;

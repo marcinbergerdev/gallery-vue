@@ -1,7 +1,6 @@
 <template>
   <article class="registration-container" :class="active">
-    <!-- <router-link class="registration-link" to="/">Sign out</router-link> -->
-    <a href="#" class="registration-link">Sign out</a>
+    <router-link class="registration-link" to="/home">Sign out</router-link>
   </article>
 </template>
 
@@ -49,7 +48,7 @@ export default {
 
   @media (min-width: 768px) {
     transform: none;
-    transition: none;
+    transition: all 0s ease 0s;
   }
 }
 </style>

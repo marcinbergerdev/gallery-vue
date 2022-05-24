@@ -1,18 +1,17 @@
 <template>
   <main class="main-content">
     <nav-list :activation="this.activation"></nav-list>
-    <pages-list></pages-list>
+    <router-view name="gallery" :activation="this.activation"></router-view>
   </main>
 </template>
 
 <script>
 import NavList from "./navbar/NavList.vue";
-import PagesList from "./pages/PhotosList.vue";
+
 
 export default {
   components: {
     NavList,
-    PagesList,
   },
   props: ["activation"],
 

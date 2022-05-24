@@ -2,27 +2,13 @@
   <router-view name="homepage"></router-view>
   <router-view name="header" :activation="this.activation"></router-view>
   <router-view :activation="this.activation"></router-view>
-
-  <!-- <home-page></home-page>
-  <app-header :activation="this.activation"></app-header>
-  <router-view :activation="this.activation"></router-view> -->
-
-
-
-  <!-- <app-main :activation="this.activation"></app-main> -->
 </template>
 
 <script>
-// import HomePage from "./components/mobile homepage/HomePage.vue";
-// import AppHeader from "./components/header/AppHeader.vue";
-// import AppMain from "./components/main/AppMain.vue";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 export default {
   components: {
-    // HomePage,
-    // AppHeader,
-    // AppMain,
   },
   provide() {
     return {
