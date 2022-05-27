@@ -1,23 +1,26 @@
 <template>
   <main class="main-content">
     <nav-list :activation="this.activation"></nav-list>
-    <router-view name="gallery" :activation="this.activation"></router-view>
+    <router-view name="gallery"></router-view>
   </main>
 </template>
 
 <script>
 import NavList from "./navbar/NavList.vue";
 
-
 export default {
   components: {
     NavList,
   },
-  props: ["activation"],
+  props: ["activation", "newPhotosList"],
 
   data() {
-    return {
-    };
+    return {};
+  },
+  methods: {
+    test() {
+      console.log(this.newPhotosList);
+    },
   },
 };
 </script>

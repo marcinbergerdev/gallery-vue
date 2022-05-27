@@ -6,6 +6,7 @@
         :key="link.id"
         :id="link.id"
         :name="link.name"
+        :url="link.url"
       ></nav-item>
     </ul>
   </nav>
@@ -18,13 +19,13 @@ export default {
   components: {
     NavItem,
   },
+  inject: ["menuLinks"],
   props: {
     activation: {
       type: Boolean,
       required: true,
     },
   },
-  inject: ["menuLinks"],
   computed: {
     active() {
       return { "nav-open": this.activation };
@@ -76,7 +77,6 @@ export default {
   transform: translateX(-200%);
   transition: transform 0.4s ease-in-out;
   opacity: 1;
-
 
   @media (min-width: 768px) {
     transform: none;

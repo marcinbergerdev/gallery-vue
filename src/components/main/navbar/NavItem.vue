@@ -1,30 +1,42 @@
 <template>
-  <a class='link' href="#"> {{ name }}</a>
+  <li>
+    <button href="#" class="link" @click="getPhotos(apiData)">{{ name }}</button>
+  </li>
 </template>
 
 <script>
+
 export default {
-props: {
-  id: {
-    type: String,
-    required: true
+  inject: ['getPhotos'],
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
   },
-  name: {
-    type: String,
-    required: true
+  computed: {
+    apiData(){
+      return {id: this.id, url: this.url}
+    }
   }
-}
 };
 </script>
 
 <style lang="scss" scoped>
 .link {
-  display: block;
   padding: 10px;
   font-size: 2rem;
   list-style: none;
   color: #fff;
-  text-decoration: none;
+  background-color: transparent;
 
   @media (orientation: landscape) {
     padding: 5px;

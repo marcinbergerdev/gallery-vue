@@ -1,17 +1,22 @@
 <template>
   <ul class="photos-list">
-    <photos-item v-for="photo in photos" :key="photo.id" :id="photo.id" :link="photo.link"></photos-item>
+    <photos-item
+      v-for="photo in newPhotos"
+      :key="photo.id"
+      :id="photo.id"
+      :link="photo.url"
+    ></photos-item>
   </ul>
 </template>
 
 <script>
 import PhotosItem from "./PhotosItem.vue";
 
-
 export default {
   components: {
     PhotosItem,
   },
+  inject: ["newPhotos"],
   data() {
     return {
       photos: [
@@ -30,6 +35,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 ul li {
   list-style: none;
 }
@@ -43,7 +50,6 @@ ul li {
 
   padding: 15rem 0;
   background-image: linear-gradient(329deg, #b9b9b9, #fff, #b9b9b9);
-
 
   @media (min-width: 768px) {
     flex-direction: row;

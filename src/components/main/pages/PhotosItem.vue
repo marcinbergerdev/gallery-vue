@@ -2,7 +2,7 @@
    <li>
       <article class="photos">
         <div class="photos__img">
-          <img class="img" src="" alt="photo" />
+          <img class="img" :src="link" alt="photo" />
         </div>
         <button class="photos__addButton" @click="test">Add</button>
       </article>
@@ -15,7 +15,7 @@
 
 export default {
 props: {
-   id:{
+   id: {
       type: String,
       required: true
    },
@@ -26,16 +26,29 @@ props: {
 },
 methods: {
   test(){
-    console.log(this.link);
+
   }
 }
 }
 </script>
 
 <style lang="scss" scoped>
+  @keyframes showPhoto {
+  from {
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+
 .photos {
   display: flex;
   flex-direction: column;
+    animation: showPhoto;
+    animation-duration: 2s;
+    // animation-iteration-count: 1;
 
   &__img {
     position: relative;

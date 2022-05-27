@@ -20,7 +20,8 @@ export default {
     HeaderLanguages,
     HeaderNav,
   },
-  props: ["activation"]
+  props: ["activation"],
+
 };
 </script>
 
