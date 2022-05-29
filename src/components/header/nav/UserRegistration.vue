@@ -1,15 +1,14 @@
 <template>
   <article class="registration-container" :class="active">
-    <router-link class="registration-link" to="/login" >Log in</router-link>
-    <router-link class="registration-link" to="/registration" >Sign in</router-link>
-    <!-- <a href="/" class="registration-link">Log in</a>
-    <a href="/" class="registration-link">Sign in</a> -->
+    <router-link class="registration-link" to="/login">Log in</router-link>
 
+    <router-link class="registration-link" to="/registration"
+      >Sign in</router-link
+    >
   </article>
 </template>
 
 <script>
-// import { enableBodyScroll } from "body-scroll-lock";
 export default {
   props: {
     activation: {
@@ -21,18 +20,6 @@ export default {
     active() {
       return { active: this.activation };
     },
-  },
-  data(){
-   return {
-
-   }
-  },
-  methods: {
-   //  test() {
-   //    const targetScrollElement = document.querySelector('body');
-   //    enableBodyScroll(targetScrollElement);
-   //    TO JEST TO WYLACZANIA SKROLA
-   //  },
   },
 };
 </script>

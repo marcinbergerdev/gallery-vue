@@ -1,54 +1,44 @@
 <template>
-   <li>
-      <article class="photos">
-        <div class="photos__img">
-          <img class="img" :src="link" alt="photo" />
-        </div>
-        <button class="photos__addButton" @click="test">Add</button>
-      </article>
-    </li>
+  <li>
+    <article class="photos">
+      <div class="photos__img">
+        <img class="img" :src="link" alt="photo" />
+      </div>
+      <button class="photos__addButton">Add</button>
+    </article>
+  </li>
 </template>
 
 <script>
-
-
-
 export default {
-props: {
-   id: {
+  props: {
+    id: {
       type: String,
-      required: true
-   },
-   link: {
+      required: true,
+    },
+    link: {
       type: String,
-      required: true
-   }
-},
-methods: {
-  test(){
-
-  }
-}
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  @keyframes showPhoto {
+@keyframes showPhoto {
   from {
     opacity: 0;
   }
-  to{
+  to {
     opacity: 1;
   }
 }
 
-
 .photos {
   display: flex;
   flex-direction: column;
-    animation: showPhoto;
-    animation-duration: 2s;
-    // animation-iteration-count: 1;
+  animation: showPhoto;
+  animation-duration: 2s;
 
   &__img {
     position: relative;
@@ -105,12 +95,12 @@ methods: {
 
     &::before {
       top: 160%;
-    left: -205%;
+      left: -205%;
     }
 
     &::after {
       top: -140%;
-    left: -45%;
+      left: -45%;
       transform: rotate(90deg);
     }
 

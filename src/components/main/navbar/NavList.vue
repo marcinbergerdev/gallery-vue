@@ -4,9 +4,9 @@
       <nav-item
         v-for="link in menuLinks"
         :key="link.id"
-        :id="link.id"
         :name="link.name"
-        :url="link.url"
+        :link-name="link.linkName"
+        :user-logg="this.userLogg"
       ></nav-item>
     </ul>
   </nav>
@@ -24,6 +24,9 @@ export default {
     activation: {
       type: Boolean,
       required: true,
+    },
+    userLogg: {
+      type: Boolean,
     },
   },
   computed: {

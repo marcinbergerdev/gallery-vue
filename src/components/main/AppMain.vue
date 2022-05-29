@@ -1,6 +1,6 @@
 <template>
   <main class="main-content">
-    <nav-list :activation="this.activation"></nav-list>
+    <nav-list :activation="this.activation" :user-logg="this.userLogg"></nav-list>
     <router-view name="gallery"></router-view>
   </main>
 </template>
@@ -12,7 +12,7 @@ export default {
   components: {
     NavList,
   },
-  props: ["activation", "newPhotosList"],
+  props: ["activation", "newPhotosList", 'userLogg'],
 
   data() {
     return {};

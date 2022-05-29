@@ -1,36 +1,39 @@
 <template>
-  <li>
-    <button href="#" class="link" @click="getPhotos(apiData)">{{ name }}</button>
+  <li class="link">
+    <router-link :to="categoryLink">{{ name }}</router-link>
   </li>
 </template>
 
 <script>
-
 export default {
-  inject: ['getPhotos'],
   props: {
-    id: {
-      type: String,
-      required: true,
-    },
     name: {
       type: String,
       required: true,
     },
-    url: {
+    linkName: {
       type: String,
       required: true,
     },
+    userLogg: {
+      type: Boolean,
+    },
   },
   computed: {
-    apiData(){
-      return {id: this.id, url: this.url}
-    }
-  }
+    categoryLink() {
+      return this.userLogg
+        ? { name: "user-category", params: { category: this.linkName } }
+        : { name: "category", params: { category: this.linkName } };
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+a {
+  color: #fff;
+  text-decoration: none;
+}
 .link {
   padding: 10px;
   font-size: 2rem;
