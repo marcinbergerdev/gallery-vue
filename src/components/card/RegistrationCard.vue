@@ -2,7 +2,7 @@
   <section class="form-container">
     <form>
       <h1 class="form-container__logo">Registration</h1>
-      <router-link class="form-container__backBtn" to="/">Back</router-link>
+      <router-link class="form-container__backBtn" to="/home/random">Back</router-link>
 
       <div class="form-container__box">
         <slot name="login"></slot>

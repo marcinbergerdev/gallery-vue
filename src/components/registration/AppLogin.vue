@@ -11,7 +11,7 @@
     </template>
 
     <template #sendBtn>
-      <router-link to="/home/user" class="sendButton">Log in</router-link>
+      <router-link to="/home/user/random" class="sendButton">Log in</router-link>
     </template>
   </registration-card>
 </template>

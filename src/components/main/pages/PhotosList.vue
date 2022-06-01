@@ -21,83 +21,63 @@ export default {
   inject: ["menuLinks"],
   data() {
     return {
-      numberOfPhotos: 10,
+      uploadedPhotos: [],
       newPhotos: [],
     };
   },
   methods: {
-    getPhotos() {
-      const defaultPhotosList = {
-        id: "m1",
-        url: "https://picsum.photos/200/300",
-      };
-      this.getPhotosList(defaultPhotosList);
-    },
-
-    getPhotosList({ id, url }) {
-      this.newPhotos = [];
-
-      //GET API
-      for (let i = 0; i < this.numberOfPhotos; i++) {
-        if (this.newPhotos.length === 0) {
-          axios.get(url).then((res) => {
-            this.convertPhotos(id, res);
-          });
-        }
-      }
-    },
-
-    convertPhotos(id, res) {
-      let photos = {};
-      photos = {
+    photoConvert(id, newRoute, response) {
+      const photo = {
         id: "",
         url: "",
       };
 
-      if (id === "m1") {
-        photos.id = res.headers["picsum-id"];
-        photos.url = res.request.responseURL;
-      } else if (id === "m2") {
-        photos.id = id;
-        photos.url = res.data.message;
-      } else if (id === "m3") {
-        photos.id = res.data[0].id;
-        photos.url = res.data[0].url;
-      } else if (id === "m4") {
-        photos.id = id;
-        photos.url = res.data.image;
-      } else if (id === "m5") {
-        photos.id = id;
-        photos.url = res.data.image;
+      if (newRoute === "random") {
+        photo.id = response.headers["picsum-id"];
+        photo.url = response.request.responseURL;
+      } else if (newRoute === "dogs") {
+        photo.id = id;
+        photo.url = response.data.message;
+      } else if (newRoute === "cats") {
+        photo.id = response.data[0].id;
+        photo.url = response.data[0].url;
+      } else if (newRoute === "foods") {
+        photo.id = id;
+        photo.url = response.data.image;
+      } else if (newRoute === "fox") {
+        photo.id = id;
+        photo.url = response.data.image;
       }
-      this.newPhotos.push(photos);
+      this.newPhotos.push(photo);
+    },
+
+    getPhotos(newRoute) {
+      this.newPhotos = [];
+      const selectedOption = this.menuLinks.find(
+        (link) => link.id === newRoute
+      );
+
+      for (let i = 0; i < 10; i++) {
+        axios.get(selectedOption.url).then((response) => {
+          this.photoConvert(i, newRoute, response);
+        });
+      }
     },
   },
   watch: {
-    category(value) {
-      if (this.newPhotos.length !== this.numberOfPhotos) {
-        return;
-      } else {
-        const selectedOption = this.menuLinks.find(
-          (option) => option.linkName === value
-        );
-        const photos = {
-          id: selectedOption.id,
-          url: selectedOption.url,
-        };
-        this.getPhotosList(photos);
-      }
-    },
-
-    $route(value) {
-      if (value.href === "/home" || value.href === '/home/user') {
-        this.getPhotos();
-      }
+    category(newRoute) {
+      this.getPhotos(newRoute);
     },
   },
-
   created() {
-    this.getPhotos();
+    const newRoute = this.$route.params.category;
+    const homeRoute = this.$route.href;
+
+    if (homeRoute === "/home") {
+      this.getPhotos("random");
+    } else {
+      this.getPhotos(newRoute);
+    }
   },
 };
 </script>

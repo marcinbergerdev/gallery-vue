@@ -1,6 +1,6 @@
 <template>
   <article class="registration-container" :class="active">
-    <router-link class="registration-link" to="/home">Sign out</router-link>
+    <router-link class="registration-link" to="/home/random">Sign out</router-link>
   </article>
 </template>
 

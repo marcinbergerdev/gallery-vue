@@ -17,6 +17,7 @@ export default {
     return {
       toggleMenu: this.toggleHamburgerAndMenu,
       menuLinks: this.menuLinks,
+      closeMenu: this.closeMenuActive
     };
   },
   data() {
@@ -26,34 +27,29 @@ export default {
       userLoggedStatus: false,
       menuLinks: [
         {
-          id: "m1",
+          id: "random",
           name: "Random",
           url: "https://picsum.photos/200/300",
-          linkName: "random",
         },
         {
-          id: "m2",
+          id: "dogs",
           name: "Dogs",
           url: "https://dog.ceo/api/breeds/image/random",
-          linkName: "dogs",
         },
         {
-          id: "m3",
+          id: "cats",
           name: "Cats",
           url: "https://api.thecatapi.com/v1/images/search",
-          linkName: "cats",
         },
         {
-          id: "m4",
+          id: "foods",
           name: "Foods",
-          url: " https://foodish-api.herokuapp.com/api/",
-          linkName: "foods",
+          url: "https://foodish-api.herokuapp.com/api/",
         },
         {
-          id: "m5",
+          id: "fox",
           name: "Fox",
           url: "https://randomfox.ca/floof/",
-          linkName: "fox",
         },
       ],
     };
@@ -69,12 +65,15 @@ export default {
         enableBodyScroll(this.targetScrollElement);
       }
     },
+    closeMenuActive(){
+      this.activation = false;
+    }
   },
   watch: {
     $route(value) {
       if (value.href === "/home") {
         this.userLoggedStatus = false;
-      } else if (value.href === "/home/user") {
+      } else if (value.href === "/home/user/random") {
         this.userLoggedStatus = true;
       }
     },

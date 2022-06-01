@@ -34,7 +34,12 @@ const router = createRouter({
                path: "",
                components: { default: UserRegistration, gallery: PhotosList },
             },
-
+            {
+               name: "category",
+               path: ":category",
+               components: { default: UserRegistration, gallery: PhotosList },
+               props: true,
+            },
             {
                name: "user",
                path: "user",
@@ -43,6 +48,7 @@ const router = createRouter({
                   myaccount: UserAccount,
                   gallery: PhotosList,
                },
+
             },
 
             {
@@ -64,13 +70,6 @@ const router = createRouter({
                   myaccount: UserAccount,
                   gallery: GalleryList,
                },
-            },
-
-            {
-               name: "category",
-               path: ":category",
-               components: { default: UserRegistration, gallery: PhotosList },
-               props: true,
             },
          ],
       },

@@ -7,11 +7,11 @@
 <script>
 export default {
   props: {
-    name: {
+    id: {
       type: String,
       required: true,
     },
-    linkName: {
+    name: {
       type: String,
       required: true,
     },
@@ -22,8 +22,8 @@ export default {
   computed: {
     categoryLink() {
       return this.userLogg
-        ? { name: "user-category", params: { category: this.linkName } }
-        : { name: "category", params: { category: this.linkName } };
+        ? { name: "user-category", params: { category: this.id } }
+        : { name: "category", params: { category: this.id } };
     },
   },
 };
@@ -33,6 +33,12 @@ export default {
 a {
   color: #fff;
   text-decoration: none;
+  opacity: 0.7;
+
+  &:hover,
+  &.router-link-active{
+    opacity: 1;
+  }
 }
 .link {
   padding: 10px;
@@ -49,12 +55,8 @@ a {
   @media (min-width: 768px) {
     margin-top: 30px;
     font-size: 1.7rem;
-    opacity: 0.7;
     cursor: pointer;
-
-    &:hover {
-      opacity: 1;
-    }
   }
 }
 </style>
+

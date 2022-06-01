@@ -1,8 +1,8 @@
 <template>
-  <li>
+  <li :id="id">
     <article class="photos">
       <div class="photos__img">
-        <img class="img" :src="link" alt="photo" />
+        <v-lazy-image class="img" :src="link" alt="photo" />
       </div>
       <button class="photos__addButton">Add</button>
     </article>
@@ -10,10 +10,15 @@
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
+
 export default {
+  components: {
+    VLazyImage,
+  },
   props: {
     id: {
-      type: String,
+      type: [String, Number],
       required: true,
     },
     link: {
@@ -44,6 +49,7 @@ export default {
     position: relative;
     width: 25rem;
     height: 25rem;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
 
     &::before,
     &::after {

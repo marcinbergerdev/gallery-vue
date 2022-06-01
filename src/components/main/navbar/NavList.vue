@@ -4,8 +4,8 @@
       <nav-item
         v-for="link in menuLinks"
         :key="link.id"
+        :id="link.id"
         :name="link.name"
-        :link-name="link.linkName"
         :user-logg="this.userLogg"
       ></nav-item>
     </ul>
@@ -19,7 +19,7 @@ export default {
   components: {
     NavItem,
   },
-  inject: ["menuLinks"],
+  inject: ["menuLinks",'closeMenu'],
   props: {
     activation: {
       type: Boolean,
@@ -34,6 +34,11 @@ export default {
       return { "nav-open": this.activation };
     },
   },
+   watch: {
+    $route(){
+      this.closeMenu();
+    }
+  }
 };
 </script>
 
