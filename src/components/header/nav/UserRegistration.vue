@@ -46,7 +46,7 @@ export default {
 }
 
 .active {
-  transform: translateX(50%);
+  transform: translateX(55%);
   transition: 0.4s ease-in-out;
   opacity: 1;
 

@@ -37,11 +37,11 @@ export default {
 
   &__button {
     display: block;
-    margin: 0 auto;
+    margin: 100px auto 50px auto;
+    padding: 10px;
     width: 100px;
     font-size: 1.2rem;
-    margin-top: 100px;
-    padding: 10px;
+    text-decoration: none;
     background-color: #000;
     color: #fff;
     border: 0;

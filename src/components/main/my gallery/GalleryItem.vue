@@ -7,6 +7,38 @@
         <button class="photos__addButton" @click="test">Add</button>
       </article>
     </li>
+   <li>
+      <article class="photos">
+        <div class="photos__img">
+          <img class="img" src="" alt="photo" />
+        </div>
+        <button class="photos__addButton" @click="test">Add</button>
+      </article>
+    </li>
+   <li>
+      <article class="photos">
+        <div class="photos__img">
+          <img class="img" src="" alt="photo" />
+        </div>
+        <button class="photos__addButton" @click="test">Add</button>
+      </article>
+    </li>
+   <li>
+      <article class="photos">
+        <div class="photos__img">
+          <img class="img" src="" alt="photo" />
+        </div>
+        <button class="photos__addButton" @click="test">Add</button>
+      </article>
+    </li>
+   <li>
+      <article class="photos">
+        <div class="photos__img">
+          <img class="img" src="" alt="photo" />
+        </div>
+        <button class="photos__addButton" @click="test">Add</button>
+      </article>
+    </li>
 </template>
 
 <script>
