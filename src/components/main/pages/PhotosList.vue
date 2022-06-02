@@ -1,5 +1,5 @@
 <template>
-  <ul class="photos-list">
+  <ul id="myList" class="photos-list">
     <photos-item
       v-for="photo in newPhotos"
       :key="photo.id"

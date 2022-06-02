@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="mobileNav">
     <section class="logo-languages">
       <header-logo></header-logo>
       <header-languages></header-languages>
@@ -21,6 +21,29 @@ export default {
     HeaderNav,
   },
   props: ["activation"],
+  data() {
+    return {
+      scrollMobileNavigation: false,
+    };
+  },
+  methods: {
+    test() {
+      const userHeight = window.innerHeight;
+      const currentHeight = window.scrollY;
+
+      currentHeight >= userHeight
+        ? (this.scrollMobileNavigation = true)
+        : (this.scrollMobileNavigation = false);
+    },
+  },
+  computed: {
+    mobileNav() {
+      return { test: this.scrollMobileNavigation };
+    },
+  },
+  created() {
+    window.addEventListener("scroll", this.test);
+  },
 };
 </script>
 
@@ -37,6 +60,7 @@ export default {
   padding: 1rem;
   background-color: transparent;
 
+
   @media (min-width: 768px) {
     position: static;
     min-height: 70px;
@@ -47,5 +71,10 @@ export default {
 .logo-languages {
   display: flex;
   align-items: center;
+}
+
+.test {
+  background-color: #000;
+  transition: .3s ease-in-out;
 }
 </style>

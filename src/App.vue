@@ -17,7 +17,7 @@ export default {
     return {
       toggleMenu: this.toggleHamburgerAndMenu,
       menuLinks: this.menuLinks,
-      closeMenu: this.closeMenuActive
+      closeMenu: this.closeMenuActive,
     };
   },
   data() {
@@ -65,10 +65,10 @@ export default {
         enableBodyScroll(this.targetScrollElement);
       }
     },
-    closeMenuActive(){
+    closeMenuActive() {
       this.activation = false;
       enableBodyScroll(this.targetScrollElement);
-    }
+    },
   },
   watch: {
     $route(value) {
@@ -97,6 +97,9 @@ export default {
 :root {
   font-size: 10px;
   font-family: "Roboto", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
 }
 
 .registration-link {

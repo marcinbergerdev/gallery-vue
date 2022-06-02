@@ -11,14 +11,15 @@
       <div class="boxDecorations__right"></div>
     </article>
 
-    <button class="homepage-header__button">Search Gallery</button>
+    <a href="#myList" class="homepage-header__button" @click="scrollMeTo">Search Gallery</a>
   </section>
 </template>
 
 
 
 <script>
-export default {};
+export default {
+};
 </script>
 
 <style lang="scss" scoped>
@@ -35,12 +36,16 @@ export default {};
   }
 
   &__button {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    font-size: 1.2rem;
     margin-top: 100px;
     padding: 10px;
     background-color: #000;
     color: #fff;
     border: 0;
-    box-shadow: 0px 1px 17px rgb(100, 100, 100);
+    box-shadow: 0px 1px 17px rgb(199, 197, 197);
   }
 
   @media (min-width: 768px) {

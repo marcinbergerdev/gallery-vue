@@ -19,7 +19,7 @@ export default {
   components: {
     NavItem,
   },
-  inject: ["menuLinks",'closeMenu'],
+  inject: ["menuLinks", "closeMenu"],
   props: {
     activation: {
       type: Boolean,
@@ -34,11 +34,11 @@ export default {
       return { "nav-open": this.activation };
     },
   },
-   watch: {
-    $route(){
+  watch: {
+    $route() {
       this.closeMenu();
-    }
-  }
+    },
+  },
 };
 </script>
 
