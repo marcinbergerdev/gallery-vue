@@ -23,6 +23,7 @@ export default {
     return {
       uploadedPhotos: [],
       newPhotos: [],
+      numberOfPhotos: 20
     };
   },
   methods: {
@@ -57,7 +58,7 @@ export default {
         (link) => link.id === newRoute
       );
 
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < this.numberOfPhotos; i++) {
         axios
           .get(selectedOption.url)
           .then((response) => {
