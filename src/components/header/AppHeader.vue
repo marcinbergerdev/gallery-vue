@@ -27,7 +27,7 @@ export default {
     };
   },
   methods: {
-    test() {
+    showMobileNav() {
       const userHeight = window.innerHeight;
       const currentHeight = window.scrollY;
 
@@ -38,11 +38,11 @@ export default {
   },
   computed: {
     mobileNav() {
-      return { test: this.scrollMobileNavigation };
+      return { 'show-nav': this.scrollMobileNavigation };
     },
   },
   created() {
-    window.addEventListener("scroll", this.test);
+    window.addEventListener("scroll", this.showMobileNav);
   },
 };
 </script>
@@ -73,7 +73,7 @@ export default {
   align-items: center;
 }
 
-.test {
+.show-nav {
   background-color: #000;
   transition: .3s ease-in-out;
 }

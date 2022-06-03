@@ -58,9 +58,14 @@ export default {
       );
 
       for (let i = 0; i < 10; i++) {
-        axios.get(selectedOption.url).then((response) => {
-          this.photoConvert(i, newRoute, response);
-        });
+        axios
+          .get(selectedOption.url)
+          .then((response) => {
+            this.photoConvert(i, newRoute, response);
+          })
+          .catch((error) => {
+            console.log("Please check your API link " + error);
+          });
       }
     },
   },
