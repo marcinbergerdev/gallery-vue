@@ -12,19 +12,16 @@
 <script>
 import GalleryItem from "./GalleryItem.vue";
 
-
 export default {
   components: {
     GalleryItem,
   },
   data() {
     return {
-      myPhotos: [
-        { id: "1", link: "../../../assets/zdj1.jpg" },
-      ],
-  }},
+      myPhotos: [{ id: "1", link: "../../../assets/zdj1.jpg" }],
+    };
+  },
 };
-
 </script>
 
 <style lang="scss" scoped>

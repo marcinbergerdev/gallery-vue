@@ -84,6 +84,12 @@ const router = createRouter({
          component: NotFound,
       },
    ],
+   scrollBehavior() {
+      // const userHeight = window.innerHeight;
+      // const currentHeight = window.scrollY;
+
+      // window.innerHeight = 1000;
+   },
 });
 
 export default router;

@@ -1,5 +1,5 @@
 <template>
-  <ul id="myList" class="photos-list">
+  <ul id="myList" ref="list" class="photos-list">
     <photos-item
       v-for="photo in newPhotos"
       :key="photo.id"
@@ -23,7 +23,7 @@ export default {
     return {
       uploadedPhotos: [],
       newPhotos: [],
-      numberOfPhotos: 20
+      numberOfPhotos: 20,
     };
   },
   methods: {
@@ -72,6 +72,10 @@ export default {
   },
   watch: {
     category(newRoute) {
+      const scrollToElement = this.$refs["list"];
+      const top = scrollToElement.offsetTop;
+
+      window.scrollTo(400, top);
       this.getPhotos(newRoute);
     },
   },

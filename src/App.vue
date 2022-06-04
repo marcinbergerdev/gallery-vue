@@ -135,4 +135,43 @@ html {
     }
   }
 }
+
+.photo-button {
+  position: relative;
+  margin-top: 2rem;
+  padding: 0.6rem;
+  width: 5rem;
+  align-self: flex-end;
+  background-color: #000;
+  color: #fff;
+  border: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    width: 200px;
+    height: 1px;
+    background: #000;
+  }
+
+  &::before {
+    top: 160%;
+    left: -205%;
+  }
+
+  &::after {
+    top: -140%;
+    left: -45%;
+    transform: rotate(90deg);
+  }
+
+  @media (min-width: 768px) {
+    cursor: pointer;
+  }
+}
 </style>
