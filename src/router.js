@@ -13,7 +13,7 @@ const UserRegistration = () =>
 const UserAccount = () => import("./components/header/nav/UserAccount.vue");
 const UserSignout = () => import("./components/header/nav/UserSignout.vue");
 
-const PhotosList = () => import("./components/main/pages/PhotosList.vue");
+const PhotosList = () => import("./components/main/photos/PhotosList.vue");
 const GalleryList = () =>
    import("./components/main/my gallery/GalleryList.vue");
 
@@ -84,12 +84,6 @@ const router = createRouter({
          component: NotFound,
       },
    ],
-   scrollBehavior() {
-      // const userHeight = window.innerHeight;
-      // const currentHeight = window.scrollY;
-
-      // window.innerHeight = 1000;
-   },
 });
 
 export default router;

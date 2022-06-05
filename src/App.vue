@@ -1,6 +1,7 @@
 <template>
   <router-view name="homepage"></router-view>
   <router-view :activation="this.activation"></router-view>
+  <!-- <button @click="test">Test</button> -->
   <router-view
     name="main"
     :activation="this.activation"
@@ -16,8 +17,10 @@ export default {
   provide() {
     return {
       toggleMenu: this.toggleHamburgerAndMenu,
-      menuLinks: this.menuLinks,
       closeMenu: this.closeMenuActive,
+      menuLinks: this.menuLinks,
+      selectedPhotos: this.addingPhotos,
+      myPhotos: this.myGalleryList
     };
   },
   data() {
@@ -25,6 +28,7 @@ export default {
       activation: false,
       targetScrollElement: null,
       userLoggedStatus: false,
+      myGalleryList: [],
       menuLinks: [
         {
           id: "random",
@@ -69,6 +73,9 @@ export default {
       this.activation = false;
       enableBodyScroll(this.targetScrollElement);
     },
+    addingPhotos(selectedPhoto){
+     this.myGalleryList.push(selectedPhoto);
+    }
   },
   watch: {
     $route(value) {
@@ -133,45 +140,6 @@ html {
         transition: transform 0.2s ease-in-out;
       }
     }
-  }
-}
-
-.photo-button {
-  position: relative;
-  margin-top: 2rem;
-  padding: 0.6rem;
-  width: 5rem;
-  align-self: flex-end;
-  background-color: #000;
-  color: #fff;
-  border: 0;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    display: block;
-    width: 200px;
-    height: 1px;
-    background: #000;
-  }
-
-  &::before {
-    top: 160%;
-    left: -205%;
-  }
-
-  &::after {
-    top: -140%;
-    left: -45%;
-    transform: rotate(90deg);
-  }
-
-  @media (min-width: 768px) {
-    cursor: pointer;
   }
 }
 </style>

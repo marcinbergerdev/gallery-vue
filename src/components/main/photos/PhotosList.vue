@@ -5,6 +5,7 @@
       :key="photo.id"
       :id="photo.id"
       :link="photo.url"
+      @add-photo="this.addPhoto"
     ></photos-item>
   </ul>
 </template>
@@ -18,12 +19,12 @@ export default {
     PhotosItem,
   },
   props: ["category"],
-  inject: ["menuLinks"],
+  inject: ["menuLinks","selectedPhotos"],
   data() {
     return {
+      numberOfPhotos: 20,
       uploadedPhotos: [],
       newPhotos: [],
-      numberOfPhotos: 20,
     };
   },
   methods: {
@@ -69,13 +70,18 @@ export default {
           });
       }
     },
+
+    addPhoto(id) {
+      const selectedPhoto = this.newPhotos.find((photo) => photo.id === id);
+      this.selectedPhotos(selectedPhoto);
+    },
   },
   watch: {
     category(newRoute) {
       const scrollToElement = this.$refs["list"];
       const top = scrollToElement.offsetTop;
 
-      window.scrollTo(400, top);
+      window.scrollTo(0, top);
       this.getPhotos(newRoute);
     },
   },
