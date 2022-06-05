@@ -4,7 +4,13 @@
       <div class="photos__img">
         <v-lazy-image class="img" :src="link" alt="photo" />
       </div>
-      <button class="photos__button" @click="$emit('addPhoto', id)">Add</button>
+      <button
+        class="photos__button"
+        :class="disabled"
+        @click="$emit('addPhoto', id)"
+      >
+        Add
+      </button>
     </article>
   </li>
 </template>
@@ -20,6 +26,38 @@ export default {
       type: String,
       required: true,
     },
+    category: {
+      type: [String, Number],
+      required: true
+    }
+  },
+  data() {
+    return {
+      activity: true,
+    };
+  },
+  methods: {
+    disabledBtn(currentRoute){
+      if(currentRoute === '/home' || currentRoute === '/home/' + this.category){
+        this.activity = true;
+      }else if(currentRoute === '/home/user' || currentRoute == '/home/user/' + this.category){
+        this.activity = false
+      }
+    }
+  },
+  computed: {
+    disabled() {
+      return { disabled: this.activity };
+    },
+  },
+  watch: {
+    $route(value){
+      this.disabledBtn(value.href);
+    }
+  },
+  created() {
+    const currentRoute = this.$route.href;
+    this.disabledBtn(currentRoute);
   },
 };
 </script>
@@ -115,5 +153,10 @@ export default {
 .img {
   width: 100%;
   height: 100%;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.2;
 }
 </style>

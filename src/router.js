@@ -22,7 +22,7 @@ const NotFound = () => import("./components/notfound/NotFound.vue");
 const router = createRouter({
    history: createWebHistory(),
    routes: [
-      { path: "/", redirect: "/home" },
+      { path: "/", redirect: "/home/random" },
       {
          name: "home",
          path: "/home",

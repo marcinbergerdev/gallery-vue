@@ -20,12 +20,17 @@ export default {
   components: {
     GalleryItem,
   },
-  inject: ['myPhotos'],
+  inject: ["myPhotos", "userLoggStatus"],
   methods: {
-    photoDelete(id){
-      const photoIndex = this.myPhotos.findIndex(photo => photo.id === id);
+    photoDelete(id) {
+      const photoIndex = this.myPhotos.findIndex((photo) => photo.id === id);
       this.myPhotos.splice(photoIndex, 1);
-    }
+    },
+    ifUserIsLogged(currentRoute) {
+      if (currentRoute === "/home/user/mygallery") {
+        this.userLoggStatus(true);
+      }
+    },
   },
   computed: {
     emptyList() {
@@ -36,10 +41,16 @@ export default {
     category(newRoute) {
       const scrollToElement = this.$refs["list"];
       const top = scrollToElement.offsetTop;
+      const currentRoute = this.$route.href;
 
       window.scrollTo(0, top);
       this.getPhotos(newRoute);
+      this.ifUserIsLogged(currentRoute);
     },
+  },
+  created() {
+    const currentRoute = this.$route.href;
+    this.ifUserIsLogged(currentRoute);
   },
 };
 </script>

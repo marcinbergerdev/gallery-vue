@@ -5,7 +5,7 @@
   <router-view
     name="main"
     :activation="this.activation"
-    :user-logg="this.userLoggedStatus"
+    :user-logg="this.userStatus"
   ></router-view>
 </template>
 
@@ -19,15 +19,16 @@ export default {
       toggleMenu: this.toggleHamburgerAndMenu,
       closeMenu: this.closeMenuActive,
       menuLinks: this.menuLinks,
+      userLoggStatus: this.userLoggedStatus,
       selectedPhotos: this.addingPhotos,
-      myPhotos: this.myGalleryList
+      myPhotos: this.myGalleryList,
     };
   },
   data() {
     return {
       activation: false,
       targetScrollElement: null,
-      userLoggedStatus: false,
+      userStatus: false,
       myGalleryList: [],
       menuLinks: [
         {
@@ -69,21 +70,15 @@ export default {
         enableBodyScroll(this.targetScrollElement);
       }
     },
+    userLoggedStatus(value) {
+      this.userStatus = value;
+    },
     closeMenuActive() {
       this.activation = false;
       enableBodyScroll(this.targetScrollElement);
     },
-    addingPhotos(selectedPhoto){
-     this.myGalleryList.push(selectedPhoto);
-    }
-  },
-  watch: {
-    $route(value) {
-      if (value.href === "/home") {
-        this.userLoggedStatus = false;
-      } else if (value.href === "/home/user/random") {
-        this.userLoggedStatus = true;
-      }
+    addingPhotos(selectedPhoto) {
+      this.myGalleryList.push(selectedPhoto);
     },
   },
   created() {

@@ -5,6 +5,7 @@
       :key="photo.id"
       :id="photo.id"
       :link="photo.url"
+      :category="this.category"
       @add-photo="this.addPhoto"
     ></photos-item>
   </ul>
@@ -19,7 +20,7 @@ export default {
     PhotosItem,
   },
   props: ["category"],
-  inject: ["menuLinks","selectedPhotos"],
+  inject: ["menuLinks", "selectedPhotos", "userLoggStatus"],
   data() {
     return {
       numberOfPhotos: 20,
@@ -66,7 +67,7 @@ export default {
             this.photoConvert(i, newRoute, response);
           })
           .catch((error) => {
-            console.log("Please check your API link " + error);
+            console.error("Please check your API link or single photo API didn't load properly, refresh if you wont upload! " + error);
           });
       }
     },
@@ -75,28 +76,38 @@ export default {
       const selectedPhoto = this.newPhotos.find((photo) => photo.id === id);
       this.selectedPhotos(selectedPhoto);
     },
+
+    ifUserIsLogged(currentRoute) {
+      if (currentRoute === '/home' || currentRoute === "/home/" + this.category) {
+        this.userLoggStatus(false);
+      } else if (currentRoute === '/home' || currentRoute === "/home/user/" + this.category) {
+        this.userLoggStatus(true);
+      }
+    },
   },
   watch: {
     category(newRoute) {
       const scrollToElement = this.$refs["list"];
       const top = scrollToElement.offsetTop;
+      const homeRoute = this.$route.href;
 
       window.scrollTo(0, top);
       this.getPhotos(newRoute);
+      this.ifUserIsLogged(homeRoute);
     },
   },
   created() {
     const newRoute = this.$route.params.category;
-    const homeRoute = this.$route.href;
+    const currentRoute = this.$route.href;
 
-    if (homeRoute === "/home") {
-      this.getPhotos("random");
-    } else {
-      this.getPhotos(newRoute);
-    }
+    currentRoute === "/home" ? this.getPhotos("random") : this.getPhotos(newRoute);
+
+
+    this.ifUserIsLogged(currentRoute);
   },
 };
 </script>
+
 
 
 

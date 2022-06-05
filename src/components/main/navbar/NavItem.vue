@@ -17,6 +17,7 @@ export default {
     },
     userLogg: {
       type: Boolean,
+      required: false,
     },
   },
   computed: {
