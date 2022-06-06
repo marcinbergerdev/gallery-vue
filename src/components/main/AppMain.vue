@@ -13,15 +13,6 @@ export default {
     NavList,
   },
   props: ["activation", "newPhotosList", 'userLogg'],
-
-  data() {
-    return {};
-  },
-  methods: {
-    test() {
-      console.log(this.newPhotosList);
-    },
-  },
 };
 </script>
 

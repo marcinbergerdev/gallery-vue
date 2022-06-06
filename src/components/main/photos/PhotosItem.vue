@@ -1,13 +1,13 @@
 <template>
   <li :id="id">
-    <article class="photos">
+    <article class="photos" :class="disabledAfterAdded">
       <div class="photos__img">
         <v-lazy-image class="img" :src="link" alt="photo" />
       </div>
       <button
         class="photos__button"
+        @click="addPhotoToGallery"
         :class="disabled"
-        @click="$emit('addPhoto', id)"
       >
         Add
       </button>
@@ -28,32 +28,46 @@ export default {
     },
     category: {
       type: [String, Number],
-      required: true
-    }
+      required: false,
+    },
   },
   data() {
     return {
       activity: true,
+      activityAfterAdded: false
     };
   },
   methods: {
-    disabledBtn(currentRoute){
-      if(currentRoute === '/home' || currentRoute === '/home/' + this.category){
+    disabledBtn(currentRoute) {
+      if (
+        currentRoute === "/home" ||
+        currentRoute === "/home/" + this.category
+      ) {
         this.activity = true;
-      }else if(currentRoute === '/home/user' || currentRoute == '/home/user/' + this.category){
-        this.activity = false
+      } else if (
+        currentRoute === "/home/user" ||
+        currentRoute == "/home/user/" + this.category
+      ) {
+        this.activity = false;
       }
-    }
+    },
+    addPhotoToGallery() {
+      this.$emit("addPhoto", this.id);
+      this.activityAfterAdded = true;
+    },
   },
   computed: {
     disabled() {
       return { disabled: this.activity };
     },
+    disabledAfterAdded(){
+      return {disabled:  this.activityAfterAdded }
+    }
   },
   watch: {
-    $route(value){
+    $route(value) {
       this.disabledBtn(value.href);
-    }
+    },
   },
   created() {
     const currentRoute = this.$route.href;
@@ -74,10 +88,35 @@ export default {
 }
 
 .photos {
+  position: relative;
   display: flex;
   flex-direction: column;
   animation: showPhoto;
   animation-duration: 2s;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    display: block;
+    width: 200px;
+    height: 1px;
+    background: #000;
+  }
+
+  &::before {
+    bottom: -7%;
+    left: 41%;
+  }
+
+  &::after {
+    bottom: 18%;
+    left: 73%;
+    transform: rotate(90deg);
+  }
 
   &__img {
     position: relative;
@@ -120,30 +159,6 @@ export default {
     color: #fff;
     border: 0;
 
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      display: block;
-      width: 200px;
-      height: 1px;
-      background: #000;
-    }
-
-    &::before {
-      top: 160%;
-      left: -205%;
-    }
-
-    &::after {
-      top: -140%;
-      left: -45%;
-      transform: rotate(90deg);
-    }
-
     @media (min-width: 768px) {
       cursor: pointer;
     }
@@ -158,5 +173,6 @@ export default {
 .disabled {
   pointer-events: none;
   opacity: 0.2;
+  transition: .1s ease-in-out;
 }
 </style>

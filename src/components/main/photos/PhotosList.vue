@@ -29,7 +29,7 @@ export default {
     };
   },
   methods: {
-    photoConvert(id, newRoute, response) {
+    photosConvert(id, newRoute, response) {
       const photo = {
         id: "",
         url: "",
@@ -56,6 +56,7 @@ export default {
 
     getPhotos(newRoute) {
       this.newPhotos = [];
+
       const selectedOption = this.menuLinks.find(
         (link) => link.id === newRoute
       );
@@ -64,10 +65,13 @@ export default {
         axios
           .get(selectedOption.url)
           .then((response) => {
-            this.photoConvert(i, newRoute, response);
+            this.photosConvert(i, newRoute, response);
           })
           .catch((error) => {
-            console.error("Please check your API link or single photo API didn't load properly, refresh if you wont upload! " + error);
+            console.error(
+              "Please check your API link or single photo API didn't load properly, refresh if you wont upload! " +
+                error
+            );
           });
       }
     },
@@ -78,30 +82,41 @@ export default {
     },
 
     ifUserIsLogged(currentRoute) {
-      if (currentRoute === '/home' || currentRoute === "/home/" + this.category) {
+      if (
+        currentRoute === "/home" ||
+        currentRoute === "/home/" + this.category
+      ) {
         this.userLoggStatus(false);
-      } else if (currentRoute === '/home' || currentRoute === "/home/user/" + this.category) {
+      } else if (
+        currentRoute === "/home/user" ||
+        currentRoute === "/home/user/" + this.category
+      ) {
         this.userLoggStatus(true);
       }
     },
   },
   watch: {
     category(newRoute) {
+      const currentRoute = this.$route.href;
+
       const scrollToElement = this.$refs["list"];
       const top = scrollToElement.offsetTop;
-      const homeRoute = this.$route.href;
-
       window.scrollTo(0, top);
-      this.getPhotos(newRoute);
-      this.ifUserIsLogged(homeRoute);
+
+      newRoute !== undefined
+        ? this.getPhotos(newRoute)
+        : this.getPhotos("random");
+
+      this.ifUserIsLogged(currentRoute);
     },
   },
   created() {
     const newRoute = this.$route.params.category;
     const currentRoute = this.$route.href;
 
-    currentRoute === "/home" ? this.getPhotos("random") : this.getPhotos(newRoute);
-
+    currentRoute === "/home" || currentRoute === "/home/user"
+      ? this.getPhotos("random")
+      : this.getPhotos(newRoute);
 
     this.ifUserIsLogged(currentRoute);
   },
