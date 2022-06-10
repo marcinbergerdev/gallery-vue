@@ -1,70 +1,167 @@
 <template>
-  <registration-card>
-    <template #login>
-      <label for="">Login</label>
-      <input type="text" />
-    </template>
+  <section class="form-wrapper">
+    <article class="form-box">
+      <header class="form-header">
+        <h1 class="form-header__text">Registration</h1>
+        <router-link to="/home" class="form-header__button">Back</router-link>
+      </header>
 
-    <template #password>
-      <label for="">Password</label>
-      <input type="password" />
-    </template>
+      <Form @submit="sendData">
+        <div class="form-input">
+          <label for="login">Login <span>*</span></label>
+          <Field
+            id="login"
+            name="login"
+            type="text"
+            v-model="inputLogin"
+            placeholder="test1"
+            :rules="isRequired"
+          />
+          <ErrorMessage name="login" />
+        </div>
 
-    <template #confirmPassword>
-      <label for="">Confirm password</label>
-      <input type="password" />
-    </template>
+        <div class="form-input">
+          <label for="password">Password <span>*</span></label>
+          <Field
+            id="password"
+            name="password"
+            type="password"
+            v-model="inputPassword"
+            placeholder="test1"
+            :rules="isRequired"
+          />
+          <ErrorMessage name="password" />
+        </div>
 
-    <template #sendBtn>
-      <router-link class='sendButton' to="/home/user/random">Create</router-link>
-    </template>
-  </registration-card>
+        <div class="form-input">
+          <label for="confirm-password">Confirm password <span>*</span></label>
+          <Field
+            id="confrim-password"
+            name="confrim-password"
+            type="password"
+            v-model="inputConfrimPassword"
+            placeholder="test1"
+            :rules="[isRequired, somePassword]"
+          />
+          <ErrorMessage name="confrim-password" />
+        </div>
+
+        <button class="form-sendBtn">Create</button>
+      </Form>
+    </article>
+  </section>
 </template>
 
 <script>
+import { Field, Form, ErrorMessage } from "vee-validate";
+import router from "@/router";
+
 export default {
-  data() {
-    return {};
+  components: {
+    Field,
+    Form,
+    ErrorMessage,
   },
-  created() {},
+  data() {
+    return {
+      inputLogin: "",
+      inputPassword: "",
+      inputConfrimPassword: "",
+    };
+  },
+  methods: {
+    isRequired(value) {
+      if (value && value.trim()) {
+        return true;
+      }
+      return "This is required";
+    },
+
+    somePassword(value) {
+      if (this.inputPassword === value) {
+        return true;
+      }
+      return "the password is different";
+    },
+
+    sendData() {
+      if ( this.isRequired() === "This is required" && this.somePassword() === "the password is different"){
+        router.push('/home/user');
+      }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-label {
-  margin-bottom: 5px;
-  font-size: 1.6rem;
-  color: #fff;
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f4f4f4;
 }
 
-input {
-  padding: 5px 8px;
-  border-radius: 5px;
-  border: 0;
+.form-box {
+  width: 80%;
+  margin: 50px 0;
+  border: 1px solid #000;
+  background-color: #fff;
 }
 
-input:focus {
-  outline: 2px solid #ffffff;
-}
-
-.sendButton {
-  margin-top: 45px;
-  padding: 9px 0;
-  font-size: 1.4rem;
-  text-align: center;
-  text-decoration: none;
-  color: #fff;
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
   background-color: #000;
-  border-radius: 5px;
+
+  &__text {
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    color: #fff;
+  }
+
+  &__button {
+    padding: 5px;
+    font-size: 1.4rem;
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 17px;
+    border: 2px solid #fff;
+  }
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+form {
+  padding: 10px;
+}
+
+.form-input label {
+  font-size: 1.5rem;
+}
+
+.form-input input {
+  margin-top: 5px;
+  padding: 3px;
+}
+.form-input span {
+  color: red;
+}
+
+.form-sendBtn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 8px 0;
+  background-color: #000;
+  color: #fff;
   border: 0;
-
-  @media (orientation: landscape) {
-    margin-top: 15px;
-  }
-
-  @media (min-width: 900px) {
-    cursor: pointer;
-    margin-top: 45px;
-  }
 }
 </style>

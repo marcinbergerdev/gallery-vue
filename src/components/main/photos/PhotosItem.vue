@@ -33,36 +33,30 @@ export default {
   },
   data() {
     return {
-      activity: true,
-      activityAfterAdded: false
+      buttonDisabled: true,
+      photoDisabledAfterAdded: false,
     };
   },
   methods: {
     disabledBtn(currentRoute) {
-      if (
-        currentRoute === "/home" ||
-        currentRoute === "/home/" + this.category
-      ) {
-        this.activity = true;
-      } else if (
-        currentRoute === "/home/user" ||
-        currentRoute == "/home/user/" + this.category
-      ) {
-        this.activity = false;
+      if (currentRoute === "/home" || currentRoute === "/home/" + this.category) {
+        this.activity = !this.activity;
+      } else if ( currentRoute === "/home/user" || currentRoute == "/home/user/" + this.category ) {
+        this.buttonDisabled = !this.buttonDisabled;
       }
     },
     addPhotoToGallery() {
       this.$emit("addPhoto", this.id);
-      this.activityAfterAdded = true;
+      this.photoDisabledAfterAdded = true;
     },
   },
   computed: {
     disabled() {
-      return { disabled: this.activity };
+      return { disabled: this.buttonDisabled };
     },
-    disabledAfterAdded(){
-      return {disabled:  this.activityAfterAdded }
-    }
+    disabledAfterAdded() {
+      return { disabled: this.photoDisabledAfterAdded };
+    },
   },
   watch: {
     $route(value) {
@@ -173,6 +167,6 @@ export default {
 .disabled {
   pointer-events: none;
   opacity: 0.2;
-  transition: .1s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 </style>

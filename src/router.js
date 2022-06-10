@@ -71,6 +71,10 @@ const router = createRouter({
                   gallery: GalleryList,
                },
             },
+            {
+               path: "/:notFound(.*)",
+               component: NotFound,
+            },
          ],
       },
       { name: "login-section", path: "/login", component: AppLogin },

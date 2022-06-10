@@ -1,65 +1,146 @@
 <template>
-  <registration-card>
-    <template #login>
-      <label for="username">Login</label>
-      <input id="username" type="text" />
-    </template>
+  <section class='form-wrapper'>
 
-    <template #password>
-      <label for="userpassword">Password</label>
-      <input id="userpassword" type="password" />
-    </template>
+    <article class='form-box'>
 
-    <template #sendBtn>
-      <router-link to="/home/user/random" class="sendButton">Log in</router-link>
-    </template>
-  </registration-card>
+      <header class='form-header'>
+        <h1 class='form-header__text'>Login</h1>
+        <router-link to="/home" class='form-header__button'>Back</router-link>
+      </header>
+
+      <Form @submit="sendData">
+
+        <div class='form-input'>
+          <label for="login">Login</label>
+          <Field id="login" name="Login" type='text' v-model="inputLogin" :rules="isRequired"/>
+          <ErrorMessage name="Login" />
+
+        </div>
+
+        <div class='form-input'>
+          <label for="password">Password</label>
+          <Field id="password" name="password" type="password" v-model="inputPassword" :rules="isRequired" />
+          <ErrorMessage name="password" />
+
+        </div>
+
+        <button class='form-sendBtn'>Log in</button>
+      </Form>
+
+    </article>
+
+  </section>
 </template>
 
 <script>
+import { Field, Form, ErrorMessage } from "vee-validate";
+import router from '@/router';
+
 export default {
-  data() {
-    return {};
+  components: {
+    Field,
+    Form,
+    ErrorMessage,
   },
-  created() {},
+  data(){
+    return {
+      inputLogin: 'test1',
+      inputPassword: 'test1'
+    }
+  },
+  methods: {
+    isRequired(value) {
+      if (value && value.trim()) {
+        return true;
+      }
+      return "This is required";
+    },
+    sendData() {
+      if(this.inputLogin === 'test1' && this.inputPassword === 'test1'){
+        router.push('/home/user');
+      }else {
+        console.log('złe hasło');
+      }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-label {
-  margin-bottom: 5px;
-  font-size: 1.6rem;
-  color: #fff;
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F4F4F4;
 }
 
-input {
-  padding: 5px 8px;
-  border-radius: 5px;
-  border: 0;
+.form-box{
+  width: 80%;
+  margin: 50px 0;
+  border: 1px solid #000;
+  background-color: #fff;
+
+  @media(min-width: 768px){
+    max-width: 450px;
+  }
 }
 
-input:focus {
-  outline: 2px solid #ffffff;
-}
-
-.sendButton {
-  margin-top: 45px;
-  padding: 9px 0;
-  font-size: 1.4rem;
-  text-align: center;
-  text-decoration: none;
-  color: #fff;
+.form-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
   background-color: #000;
-  border-radius: 5px;
-  border: 0;
 
-  @media (orientation: landscape) {
-    margin-top: 15px;
+  &__text{
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    color: #fff;
   }
 
-  @media (min-width: 900px) {
-    cursor: pointer;
-    margin-top: 45px;
+  &__button{
+    padding: 5px;
+    font-size: 1.4rem;
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 17px;
+    border: 2px solid #fff;
   }
 }
+
+.form-input{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+form{
+  padding: 10px;
+}
+
+.form-input label{
+font-size: 1.5rem;
+}
+
+.form-input input{
+  margin-top: 5px;
+  padding: 3px;
+}
+.form-input span{
+  color: red;
+}
+
+.form-sendBtn{
+  width: 100%;
+  margin-top: 20px;
+  padding: 8px 0;
+  background-color: #000;
+  color: #fff;
+  border: 0;
+}
+
+
 </style>

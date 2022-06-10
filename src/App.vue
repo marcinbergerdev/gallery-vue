@@ -99,6 +99,8 @@ export default {
 :root {
   font-size: 10px;
   font-family: "Roboto", sans-serif;
+
+  --validation-error: #ff5858;
 }
 html {
   scroll-behavior: smooth;

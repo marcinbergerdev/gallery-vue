@@ -9,6 +9,11 @@
   </li>
 </template>
 
+
+temat do ogarniecie jeszcze
+
+
+
 <script>
 import VLazyImage from "v-lazy-image";
 
