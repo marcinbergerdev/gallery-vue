@@ -103,11 +103,15 @@ export default {
   background-color: #f4f4f4;
 }
 
-.form-box {
+.form-box{
   width: 80%;
   margin: 50px 0;
   border: 1px solid #000;
   background-color: #fff;
+
+  @media(min-width: 768px){
+    max-width: 450px;
+  }
 }
 
 .form-header {
