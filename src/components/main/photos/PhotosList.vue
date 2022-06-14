@@ -109,6 +109,9 @@ export default {
     },
   },
   watch: {
+    $route(newRoute) {
+      if (newRoute.href === "/home") this.getPhotos("random");
+    },
     category(newRoute) {
       const currentRoute = this.$route.href;
 
