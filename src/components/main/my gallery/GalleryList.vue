@@ -20,14 +20,43 @@ export default {
   components: {
     GalleryItem,
   },
-  inject: ["myPhotos", "userLoggStatus"],
+  data() {
+    return {
+      myPhotos: [],
+    };
+  },
+  inject: ["userLoggStatus"],
   methods: {
     photoDelete(id) {
-      const photoIndex = this.myPhotos.findIndex((photo) => photo.id === id);
-      this.myPhotos.splice(photoIndex, 1);
+      const currentUser = localStorage.getItem("usersAccount");
+      const users = localStorage.getItem("users");
+      const usersList = JSON.parse(users);
+
+      const selectedUser = usersList.find((user) => user.login === currentUser);
+      const userIndex = usersList.findIndex(
+        (user) => user.login === currentUser
+      );
+      usersList.splice(userIndex, 1);
+
+      const photoIndex = selectedUser.myGallery.findIndex(
+        (photo) => photo.id === id
+      );
+      selectedUser.myGallery.splice(photoIndex, 1);
+      this.myPhotos = selectedUser.myGallery;
+      usersList.push(selectedUser);
+      localStorage.setItem("users", JSON.stringify(usersList));
     },
     ifUserIsLogged(currentRoute) {
       if (currentRoute === "/home/user/mygallery") {
+        const currentUser = localStorage.getItem("usersAccount");
+        const users = localStorage.getItem("users");
+        const usersList = JSON.parse(users);
+
+        const selectedUser = usersList.find(
+          (user) => user.login === currentUser
+        );
+
+        this.myPhotos = selectedUser.myGallery;
         this.userLoggStatus(true);
       }
     },
@@ -41,11 +70,9 @@ export default {
     category(newRoute) {
       const scrollToElement = this.$refs["list"];
       const top = scrollToElement.offsetTop;
-      const currentRoute = this.$route.href;
 
       window.scrollTo(0, top);
-      this.getPhotos(newRoute);
-      this.ifUserIsLogged(currentRoute);
+      this.ifUserIsLogged(newRoute);
     },
   },
   created() {

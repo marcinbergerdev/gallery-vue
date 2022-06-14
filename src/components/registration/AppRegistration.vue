@@ -14,7 +14,6 @@
             name="login"
             type="text"
             v-model="inputLogin"
-            placeholder="test1"
             :rules="isRequired"
           />
           <ErrorMessage name="login" />
@@ -27,7 +26,6 @@
             name="password"
             type="password"
             v-model="inputPassword"
-            placeholder="test1"
             :rules="isRequired"
           />
           <ErrorMessage name="password" />
@@ -40,7 +38,6 @@
             name="confrim-password"
             type="password"
             v-model="inputConfrimPassword"
-            placeholder="test1"
             :rules="[isRequired, somePassword]"
           />
           <ErrorMessage name="confrim-password" />
@@ -54,7 +51,7 @@
 
 <script>
 import { Field, Form, ErrorMessage } from "vee-validate";
-import router from "@/router";
+// import router from "@/router";
 
 export default {
   components: {
@@ -64,6 +61,7 @@ export default {
   },
   data() {
     return {
+      usersAccount: [],
       inputLogin: "",
       inputPassword: "",
       inputConfrimPassword: "",
@@ -85,9 +83,18 @@ export default {
     },
 
     sendData() {
-      if ( this.isRequired() === "This is required" && this.somePassword() === "the password is different"){
-        router.push('/home/user');
-      }
+      const user = {
+        login: this.inputLogin,
+        password: this.inputPassword,
+        confrimPassword: this.inputConfrimPassword,
+        myGallery: []
+      };
+      this.usersAccount.push(user);
+      localStorage.setItem("users", JSON.stringify(this.usersAccount));
+
+      this.inputLogin = "";
+      this.inputPassword = "";
+      this.inputConfrimPassword = "";
     },
   },
 };
@@ -103,13 +110,13 @@ export default {
   background-color: #f4f4f4;
 }
 
-.form-box{
+.form-box {
   width: 80%;
   margin: 50px 0;
   border: 1px solid #000;
   background-color: #fff;
 
-  @media(min-width: 768px){
+  @media (min-width: 768px) {
     max-width: 450px;
   }
 }
@@ -118,7 +125,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 20px 15px;
   background-color: #000;
 
   &__text {
@@ -154,7 +161,7 @@ form {
 
 .form-input input {
   margin-top: 5px;
-  padding: 3px;
+  padding: 6px;
 }
 .form-input span {
   color: red;
@@ -163,7 +170,7 @@ form {
 .form-sendBtn {
   width: 100%;
   margin-top: 20px;
-  padding: 8px 0;
+  padding: 13px 0;
   background-color: #000;
   color: #fff;
   border: 0;

@@ -20,7 +20,7 @@ export default {
     PhotosItem,
   },
   props: ["category"],
-  inject: ["menuLinks", "selectedPhotos", "userLoggStatus"],
+  inject: ["menuLinks", "userLoggStatus"],
   data() {
     return {
       numberOfPhotos: 20,
@@ -78,7 +78,20 @@ export default {
 
     addPhoto(id) {
       const selectedPhoto = this.newPhotos.find((photo) => photo.id === id);
-      this.selectedPhotos(selectedPhoto);
+
+      const currentUser = localStorage.getItem("usersAccount");
+      const users = localStorage.getItem("users");
+      const usersList = JSON.parse(users);
+
+      const selectedUser = usersList.find((user) => user.login === currentUser);
+      const userIndex = usersList.findIndex(
+        (user) => user.login === currentUser
+      );
+      usersList.splice(userIndex, 1);
+
+      selectedUser.myGallery.push(selectedPhoto);
+      usersList.push(selectedUser);
+      localStorage.setItem("users", JSON.stringify(usersList));
     },
 
     ifUserIsLogged(currentRoute) {

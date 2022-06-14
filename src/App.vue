@@ -17,11 +17,9 @@ export default {
   provide() {
     return {
       toggleMenu: this.toggleHamburgerAndMenu,
-      closeMenu: this.closeMenuActive,
+      closeMenu: this.menuActivity,
       menuLinks: this.menuLinks,
       userLoggStatus: this.userLoggedStatus,
-      selectedPhotos: this.addingPhotos,
-      myPhotos: this.myGalleryList,
     };
   },
   data() {
@@ -73,12 +71,9 @@ export default {
     userLoggedStatus(value) {
       this.userStatus = value;
     },
-    closeMenuActive() {
+    menuActivity() {
       this.activation = false;
       enableBodyScroll(this.targetScrollElement);
-    },
-    addingPhotos(selectedPhoto) {
-      this.myGalleryList.push(selectedPhoto);
     },
   },
   created() {
@@ -113,10 +108,12 @@ html {
   text-decoration: none;
   color: #fff;
   border-bottom: 1px solid #fff;
+  background-color: transparent;
 
   @media (min-width: 768px) {
     position: relative;
     border: 0;
+    cursor: pointer;
 
     &::before {
       content: "";

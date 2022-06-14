@@ -1,16 +1,23 @@
 <template>
   <article class="registration-container" :class="active">
-    <router-link class="registration-link" to="/home">Sign out</router-link>
+    <button class="registration-link" @click="signOut">Sign out</button>
   </article>
 </template>
 
 <script>
+import router from '@/router';
 export default {
   props: {
     activation: {
       type: Boolean,
       required: true,
     },
+  },
+  methods: {
+    signOut(){
+      localStorage.removeItem('usersAccount');
+      router.push('/home');
+    }
   },
   computed: {
     active() {
