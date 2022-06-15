@@ -104,6 +104,8 @@ export default {
   margin: 50px 0;
   border: 1px solid #000;
   background-color: #fff;
+  animation: registrationAnimation;
+  animation-duration: .2s;
 
   @media (min-width: 768px) {
     max-width: 450px;

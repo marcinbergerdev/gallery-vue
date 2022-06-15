@@ -5,8 +5,9 @@
         <h1 class="form-header__text">Registration</h1>
         <router-link to="/home" class="form-header__button">Back</router-link>
       </header>
+      <p class="accountExist" v-if="accountStatus">account already exists</p>
 
-      <Form @submit="sendData">
+      <Form @submit="searchLocaleStorage">
         <div class="form-input">
           <label for="login">Login <span>*</span></label>
           <Field
@@ -47,18 +48,22 @@
       </Form>
     </article>
 
-    <error-alert v-if="confrimAndLeave">
-      <button class="modal-buttons" @click="closeWindow">Cancel</button>
-      <button class="modal-buttons" @click="confirmAndLeave">Okey</button>
+    <error-alert v-if="confirmAndLeaveActivity">
+      <button class="modal-buttons error" @click="closeWindow">Cancel</button>
+      <button class="modal-buttons error" @click="confirmAndLeave">Okey</button>
     </error-alert>
+
+    <succes-alert v-if="createdSuccesActivity">
+      <button class="modal-buttons succes" @click="goLogin">OK</button>
+    </succes-alert>
   </section>
 </template>
 
 <script>
 import { Field, Form, ErrorMessage } from "vee-validate";
-import ErrorAlert from "../error/ErrorAlert.vue";
+import ErrorAlert from "../alerts/ErrorAlert.vue";
+import SuccesAlert from "../alerts/SuccessAlert.vue";
 import router from "@/router";
-
 
 export default {
   components: {
@@ -66,20 +71,23 @@ export default {
     Form,
     ErrorMessage,
     ErrorAlert,
+    SuccesAlert,
   },
   data() {
     return {
-      usersAccount: [],
-      inputLogin: "",
-      inputPassword: "",
-      inputConfrimPassword: "",
-      confrimAndLeave: false,
+      inputLogin: "test1",
+      inputPassword: "test1",
+      inputConfrimPassword: "test1",
+      confirmAndLeaveActivity: false,
       confirm: false,
+      createdSuccesActivity: false,
+      accountStatus: false,
     };
   },
   methods: {
     isRequired(value) {
       if (value && value.trim()) {
+        this.accountStatus = false;
         return true;
       }
       return "This is required";
@@ -92,34 +100,74 @@ export default {
       return "the password is different";
     },
 
-    sendData() {
+    confirmAndLeave() {
+      this.confirm = true;
+      router.push("/");
+    },
+
+    closeWindow() {
+      this.confirmAndLeaveActivity = false;
+    },
+
+    searchLocaleStorage() {
+      const users = JSON.parse(localStorage.getItem("users"));
       const user = {
         login: this.inputLogin,
         password: this.inputPassword,
         confrimPassword: this.inputConfrimPassword,
         myGallery: [],
       };
-      this.usersAccount.push(user);
-      localStorage.setItem("users", JSON.stringify(this.usersAccount));
+
+      users ? this.serachAccounts(users, user) : this.createAccount(user);
 
       this.inputLogin = "";
       this.inputPassword = "";
       this.inputConfrimPassword = "";
     },
 
-    confirmAndLeave() {
-      this.confirm = true;
-      router.push("/");
+    serachAccounts(users, curentUser) {
+      const searchingUsers = users.some(
+        (user) => user.login === curentUser.login
+      );
+
+      if (searchingUsers) {
+        this.accountStatus = true;
+      } else {
+        this.pushUsers(curentUser);
+      }
     },
-    closeWindow() {
-      this.confrimAndLeave = false;
+
+    createAccount(user) {
+      const usersAccount = [];
+      usersAccount.push(user);
+      localStorage.setItem("users", JSON.stringify(usersAccount));
+      this.createdSuccesActivity = true;
+
+      this.inputLogin = "";
+      this.inputPassword = "";
+      this.inputConfrimPassword = "";
+    },
+
+    pushUsers(user) {
+      let users = [];
+      users = JSON.parse(localStorage.getItem("users")) || [];
+      users.push(user);
+      localStorage.setItem("users", JSON.stringify(users));
+      this.createdSuccesActivity = true;
+    },
+    goLogin() {
+      router.push("/login");
     },
   },
   beforeRouteLeave(to, from, next) {
     const confirm = this.confirm;
 
-    if (this.inputLogin !== "" ||  this.inputPassword !== "" || this.inputConfrimPassword !== "") {
-      this.confrimAndLeave = true;
+    if (
+      this.inputLogin !== "" ||
+      this.inputPassword !== "" ||
+      this.inputConfrimPassword !== ""
+    ) {
+      this.confirmAndLeaveActivity = true;
       next(confirm);
     } else {
       next();
@@ -143,6 +191,8 @@ export default {
   margin: 50px 0;
   border: 1px solid #000;
   background-color: #fff;
+  animation: registrationAnimation;
+  animation-duration: 0.2s;
 
   @media (min-width: 768px) {
     max-width: 450px;
@@ -171,6 +221,13 @@ export default {
     border-radius: 17px;
     border: 2px solid #fff;
   }
+}
+
+.accountExist {
+  font-size: 1.5rem;
+  margin-top: 19px;
+  text-align: center;
+  color: red;
 }
 
 .form-input {
@@ -205,14 +262,30 @@ form {
 }
 
 .modal-buttons {
-  padding: 10px 15px;
-
-  margin: 10px 0 0 10px;
   background-color: #000;
   color: #fff;
   border: 0;
+
   @media (min-width: 768px) {
     cursor: pointer;
+  }
+}
+
+.error {
+  padding: 10px 15px;
+  margin: 10px 0 0 10px;
+}
+
+.succes {
+  padding: 5px 20px;
+  margin-top: 10px;
+  border-radius: 20px;
+
+  @media (min-width: 768px) {
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 </style>

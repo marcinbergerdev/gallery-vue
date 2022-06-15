@@ -101,6 +101,27 @@ html {
   scroll-behavior: smooth;
 }
 
+
+@keyframes elementAnimation {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes registrationAnimation {
+  from {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .registration-link {
   margin: 0 20px;
   padding: 3px;
