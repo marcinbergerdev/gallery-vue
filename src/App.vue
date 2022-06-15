@@ -1,7 +1,7 @@
 <template>
   <router-view name="homepage"></router-view>
   <router-view :activation="this.activation"></router-view>
-  <!-- <button @click="test">Test</button> -->
+
   <router-view
     name="main"
     :activation="this.activation"

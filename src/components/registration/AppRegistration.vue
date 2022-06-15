@@ -46,18 +46,26 @@
         <button class="form-sendBtn">Create</button>
       </Form>
     </article>
+
+    <error-alert v-if="confrimAndLeave">
+      <button class="modal-buttons" @click="closeWindow">Cancel</button>
+      <button class="modal-buttons" @click="confirmAndLeave">Okey</button>
+    </error-alert>
   </section>
 </template>
 
 <script>
 import { Field, Form, ErrorMessage } from "vee-validate";
-// import router from "@/router";
+import ErrorAlert from "../error/ErrorAlert.vue";
+import router from "@/router";
+
 
 export default {
   components: {
     Field,
     Form,
     ErrorMessage,
+    ErrorAlert,
   },
   data() {
     return {
@@ -65,6 +73,8 @@ export default {
       inputLogin: "",
       inputPassword: "",
       inputConfrimPassword: "",
+      confrimAndLeave: false,
+      confirm: false,
     };
   },
   methods: {
@@ -87,7 +97,7 @@ export default {
         login: this.inputLogin,
         password: this.inputPassword,
         confrimPassword: this.inputConfrimPassword,
-        myGallery: []
+        myGallery: [],
       };
       this.usersAccount.push(user);
       localStorage.setItem("users", JSON.stringify(this.usersAccount));
@@ -96,6 +106,24 @@ export default {
       this.inputPassword = "";
       this.inputConfrimPassword = "";
     },
+
+    confirmAndLeave() {
+      this.confirm = true;
+      router.push("/");
+    },
+    closeWindow() {
+      this.confrimAndLeave = false;
+    },
+  },
+  beforeRouteLeave(to, from, next) {
+    const confirm = this.confirm;
+
+    if (this.inputLogin !== "" ||  this.inputPassword !== "" || this.inputConfrimPassword !== "") {
+      this.confrimAndLeave = true;
+      next(confirm);
+    } else {
+      next();
+    }
   },
 };
 </script>
@@ -174,5 +202,17 @@ form {
   background-color: #000;
   color: #fff;
   border: 0;
+}
+
+.modal-buttons {
+  padding: 10px 15px;
+
+  margin: 10px 0 0 10px;
+  background-color: #000;
+  color: #fff;
+  border: 0;
+  @media (min-width: 768px) {
+    cursor: pointer;
+  }
 }
 </style>
