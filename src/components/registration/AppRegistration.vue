@@ -49,12 +49,12 @@
     </article>
 
     <error-alert v-if="confirmAndLeaveActivity">
-      <button class="modal-buttons error" @click="closeWindow">Cancel</button>
-      <button class="modal-buttons error" @click="confirmAndLeave">Okey</button>
+      <button class="modal-buttons error" @click="closeWindowErrorModal">Cancel</button>
+      <button class="modal-buttons error" @click="confirmAndLeaveErrorModal">Okey</button>
     </error-alert>
 
     <succes-alert v-if="createdSuccesActivity">
-      <button class="modal-buttons succes" @click="goLogin">OK</button>
+      <button class="modal-buttons succes" @click="successModalGoToLogin">OK</button>
     </succes-alert>
   </section>
 </template>
@@ -75,9 +75,9 @@ export default {
   },
   data() {
     return {
-      inputLogin: "test1",
-      inputPassword: "test1",
-      inputConfrimPassword: "test1",
+      inputLogin: "test",
+      inputPassword: "test",
+      inputConfrimPassword: "test",
       confirmAndLeaveActivity: false,
       confirm: false,
       createdSuccesActivity: false,
@@ -85,28 +85,20 @@ export default {
     };
   },
   methods: {
-    isRequired(value) {
-      if (value && value.trim()) {
+    isRequired(inputValue) {
+      if (inputValue && inputValue.trim()) {
         this.accountStatus = false;
+        this.createdSuccesActivity = false;
         return true;
       }
       return "This is required";
     },
 
-    somePassword(value) {
-      if (this.inputPassword === value) {
+    somePassword(confrimPassword) {
+      if (this.inputPassword === confrimPassword) {
         return true;
       }
       return "the password is different";
-    },
-
-    confirmAndLeave() {
-      this.confirm = true;
-      router.push("/");
-    },
-
-    closeWindow() {
-      this.confirmAndLeaveActivity = false;
     },
 
     searchLocaleStorage() {
@@ -126,11 +118,11 @@ export default {
     },
 
     serachAccounts(users, curentUser) {
-      const searchingUsers = users.some(
+      const searchingUser = users.some(
         (user) => user.login === curentUser.login
       );
 
-      if (searchingUsers) {
+      if (searchingUser) {
         this.accountStatus = true;
       } else {
         this.pushUsers(curentUser);
@@ -142,10 +134,6 @@ export default {
       usersAccount.push(user);
       localStorage.setItem("users", JSON.stringify(usersAccount));
       this.createdSuccesActivity = true;
-
-      this.inputLogin = "";
-      this.inputPassword = "";
-      this.inputConfrimPassword = "";
     },
 
     pushUsers(user) {
@@ -155,8 +143,18 @@ export default {
       localStorage.setItem("users", JSON.stringify(users));
       this.createdSuccesActivity = true;
     },
-    goLogin() {
+
+    confirmAndLeaveErrorModal() {
+      this.confirm = true;
+      router.push("/");
+    },
+
+    closeWindowErrorModal() {
+      this.confirmAndLeaveActivity = false;
+    },
+    successModalGoToLogin() {
       router.push("/login");
+      this.createdSuccesActivity = false;
     },
   },
   beforeRouteLeave(to, from, next) {

@@ -128,8 +128,9 @@ html {
   font-size: 1.5rem;
   text-decoration: none;
   color: #fff;
-  border-bottom: 1px solid #fff;
   background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #fff;
 
   @media (min-width: 768px) {
     position: relative;

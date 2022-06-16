@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import router from '@/router';
+import router from "@/router";
 export default {
   props: {
     activation: {
@@ -14,10 +14,10 @@ export default {
     },
   },
   methods: {
-    signOut(){
-      localStorage.removeItem('usersAccount');
-      router.push('/home');
-    }
+    signOut() {
+      localStorage.removeItem("usersAccount");
+      router.push("/home");
+    },
   },
   computed: {
     active() {

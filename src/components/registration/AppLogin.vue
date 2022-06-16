@@ -51,8 +51,8 @@ export default {
   },
   data() {
     return {
-      inputLogin: "",
-      inputPassword: "",
+      inputLogin: "admin",
+      inputPassword: "admin",
       accountStatus: false,
     };
   },
@@ -86,6 +86,25 @@ export default {
       }
     },
   },
+  created() {
+    const users = JSON.parse(localStorage.getItem("users"));
+    const user = {
+      login: "admin",
+      password: "admin",
+      confrimPassword: "admin",
+      myGallery: [],
+    };
+
+    if (users) {
+      if (users.length >= 2) {
+        this.inputLogin = "";
+        this.inputPassword = "";
+      }
+      return;
+    } else {
+      localStorage.setItem("users", JSON.stringify([user]));
+    }
+  },
 };
 </script>
 
@@ -105,7 +124,7 @@ export default {
   border: 1px solid #000;
   background-color: #fff;
   animation: registrationAnimation;
-  animation-duration: .2s;
+  animation-duration: 0.2s;
 
   @media (min-width: 768px) {
     max-width: 450px;

@@ -21,13 +21,13 @@ dialog {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 200px;
-  padding: 10px 0;
+  padding: 20px 0;
   background-color: #d5d5d5;
   border-radius: 25px;
   border: 0;
   box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.7);
   animation: elementAnimation;
-  animation-duration: .2s;
+  animation-duration: 0.2s;
 }
 
 .modal-container {
