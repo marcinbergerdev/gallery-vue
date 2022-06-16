@@ -1,38 +1,11 @@
 <template>
-  <li :id="id">
-    <article class="photos">
+  <article class="photos">
       <div class="photos__img">
-        <v-lazy-image class="img" :src="link" alt="photo" />
+        <slot></slot>
       </div>
-      <slot></slot>
+      <slot name="button"></slot>
     </article>
-  </li>
 </template>
-
-
-temat do ogarniecie jeszcze
-
-
-
-<script>
-import VLazyImage from "v-lazy-image";
-
-export default {
-  components: {
-    VLazyImage,
-  },
-  props: {
-    id: {
-      type: [String, Number],
-      required: true,
-    },
-    link: {
-      type: String,
-      required: true,
-    },
-  },
-};
-</script>
 
 
 <style lang="scss" scoped>
@@ -46,10 +19,35 @@ export default {
 }
 
 .photos {
+  position: relative;
   display: flex;
   flex-direction: column;
   animation: showPhoto;
   animation-duration: 2s;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    display: block;
+    width: 200px;
+    height: 1px;
+    background: #000;
+  }
+
+  &::before {
+    bottom: -7%;
+    left: 41%;
+  }
+
+  &::after {
+    bottom: 18%;
+    left: 72%;
+    transform: rotate(90deg);
+  }
 
   &__img {
     position: relative;
@@ -83,8 +81,4 @@ export default {
   }
 }
 
-.img {
-  width: 100%;
-  height: 100%;
-}
 </style>
