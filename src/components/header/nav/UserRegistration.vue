@@ -30,7 +30,7 @@ export default {
   bottom: 10%;
   right: 50%;
   transform: translateX(300%);
-  width: 200px;
+  width: 20rem;
   opacity: 0;
   transition: all 0.4s ease-in-out;
 

@@ -1,11 +1,11 @@
 <template>
   <Registration-card>
     <template #default>
-      <h1 class="form-header__text">Registration</h1>
+      <h1 class="form-text">Registration</h1>
     </template>
 
     <template #messageError>
-      <p class="accountExist" v-if="accountStatus">account already exists</p>
+      <p class="account-exist" v-if="accountStatus">account already exists</p>
     </template>
 
     <template #formValidation>
@@ -185,93 +185,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-  background-color: #f4f4f4;
+.form-text {
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  color: var(--white);
 }
 
-.form-box {
-  width: 80%;
-  margin: 50px 0;
-  border: 1px solid #000;
-  background-color: #fff;
-  animation: registrationAnimation;
-  animation-duration: 0.2s;
-
-  @media (min-width: 768px) {
-    max-width: 450px;
-  }
-}
-
-.form-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 15px;
-  background-color: #000;
-
-  &__text {
-    font-size: 1.7rem;
-    letter-spacing: 1px;
-    color: #fff;
-  }
-
-  &__button {
-    padding: 5px;
-    font-size: 1.4rem;
-    text-decoration: none;
-    background-color: #000;
-    color: #fff;
-    border-radius: 17px;
-    border: 2px solid #fff;
-  }
-}
-
-.accountExist {
+.account-exist {
   font-size: 1.5rem;
-  margin-top: 19px;
+  margin-top: 1.9rem;
   text-align: center;
-  color: red;
-}
-
-.form-input {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-
-form {
-  padding: 10px;
-}
-
-.form-input label {
-  font-size: 1.5rem;
-}
-
-.form-input input {
-  margin-top: 5px;
-  padding: 6px;
-}
-.form-input span {
-  color: red;
-}
-
-.form-sendBtn {
-  width: 100%;
-  margin-top: 20px;
-  padding: 13px 0;
-  background-color: #000;
-  color: #fff;
-  border: 0;
+  color: var(--red);
 }
 
 .modal-buttons {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--black);
+  color: var(--white);
   border: 0;
 
   @media (min-width: 768px) {
@@ -280,14 +209,14 @@ form {
 }
 
 .error {
-  padding: 10px 15px;
-  margin: 10px 0 0 10px;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0 0 1rem;
 }
 
 .succes {
-  padding: 5px 20px;
-  margin-top: 10px;
-  border-radius: 20px;
+  padding: 0.5rem 2rem;
+  margin-top: 1rem;
+  border-radius: 2rem;
 
   @media (min-width: 768px) {
     opacity: 0.8;

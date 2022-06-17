@@ -1,13 +1,13 @@
 <template>
   <ul id="myList" ref="list" class="photos-list">
-    <photos-item
+    <Photos-item
       v-for="photo in newPhotos"
       :key="photo.id"
       :id="photo.id"
       :link="photo.url"
       :category="this.category"
       @add-photo="this.addPhoto"
-    ></photos-item>
+    ></Photos-item>
   </ul>
 </template>
 
@@ -138,34 +138,3 @@ export default {
   },
 };
 </script>
-
-
-
-
-<style lang="scss" scoped>
-ul li {
-  list-style: none;
-}
-
-.photos-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20rem;
-
-  padding: 15rem 0;
-  background-image: linear-gradient(329deg, #b9b9b9, #fff, #b9b9b9);
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    flex-flow: row wrap;
-    gap: 13rem;
-
-    width: 100%;
-    height: calc(100vh - 7rem);
-    padding: 12rem;
-    overflow: auto;
-  }
-}
-</style>

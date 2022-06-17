@@ -12,9 +12,6 @@
   </section>
 </template>
 
-<script>
-</script>
-
 <style lang="scss" scoped>
 .form-wrapper {
   display: flex;
@@ -22,19 +19,19 @@
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background-color: #f4f4f4;
+  background-color: var(--registration-bg);
 }
 
 .form-box {
   width: 80%;
-  margin: 50px 0;
-  border: 1px solid #000;
-  background-color: #fff;
+  margin: 5rem 0;
+  border: 1px solid var(--black);
+  background-color: var(--white);
   animation: registrationAnimation;
   animation-duration: 0.2s;
 
   @media (min-width: 768px) {
-    max-width: 450px;
+    max-width: 45rem;
   }
 }
 
@@ -42,17 +39,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 15px;
-  background-color: #000;
+  padding: 2rem 1.5rem;
+  background-color: var(--black);
 
   &__button {
-    padding: 5px;
+    padding: 0.5rem;
     font-size: 1.4rem;
     text-decoration: none;
-    background-color: #000;
-    color: #fff;
-    border-radius: 17px;
-    border: 2px solid #fff;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 1.7rem;
+    border: 2px solid var(--white);
   }
 }
 </style>

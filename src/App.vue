@@ -1,5 +1,5 @@
 <template>
-  <router-view name='validation'></router-view>
+  <router-view name="validation"></router-view>
   <router-view name="homepage"></router-view>
   <router-view :activation="this.activation"></router-view>
 
@@ -14,7 +14,6 @@
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 export default {
-  components: {},
   provide() {
     return {
       toggleMenu: this.toggleHamburgerAndMenu,
@@ -96,12 +95,24 @@ export default {
   font-size: 10px;
   font-family: "Roboto", sans-serif;
 
+  --white: #fff;
+  --black: #000;
+  --red: #ff0000;
+
+  --modal-bg: #d5d5d5;
+  --registration-bg: #f4f4f4;
+  --language-bg: #333;
+  --homepage-bg: #4c4c4c;
+  --notfound-bg: #c0c0c0;
+
+  --photosBg-gradient: #b9b9b9;
+  --succes-txt: #0ca433;
   --validation-error: #ff5858;
 }
+
 html {
   scroll-behavior: smooth;
 }
-
 
 @keyframes elementAnimation {
   from {
@@ -128,10 +139,10 @@ html {
   padding: 3px;
   font-size: 1.5rem;
   text-decoration: none;
-  color: #fff;
+  color: var(--white);
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--white);
 
   @media (min-width: 768px) {
     position: relative;
@@ -147,7 +158,7 @@ html {
 
       width: 100%;
       height: 100%;
-      background-color: #fff;
+      background-color: var(--white);
       opacity: 0.4;
       transition: transform 0.2s ease-in-out;
     }
@@ -157,6 +168,77 @@ html {
         transition: transform 0.2s ease-in-out;
       }
     }
+  }
+}
+
+ul li {
+  list-style: none;
+}
+
+.photos-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20rem;
+
+  padding: 15rem 0;
+  background-image: linear-gradient(
+    329deg,
+    var(--photosBg-gradient),
+    var(--white),
+    var(--photosBg-gradient)
+  );
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-flow: row wrap;
+    gap: 13rem;
+
+    width: 100%;
+    height: calc(100vh - 7rem);
+    padding: 12rem;
+    overflow: auto;
+  }
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+form {
+  padding: 1rem;
+}
+
+.form-input label {
+  font-size: 1.5rem;
+}
+
+.form-input input {
+  margin-top: 0.5rem;
+  padding: 0.6rem;
+}
+.form-input span {
+  color: var(--red);
+}
+
+.form-sendBtn {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1.3rem 0;
+  background-color: var(--black);
+  color: var(--white);
+  border: 0;
+
+  @media (min-width: 768px) {
+    cursor: pointer;
   }
 }
 </style>

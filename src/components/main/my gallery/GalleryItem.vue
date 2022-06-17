@@ -36,7 +36,6 @@ export default {
 };
 </script>
 
-
 <style lang="scss" scoped>
 .photos-button {
   position: relative;
@@ -44,17 +43,12 @@ export default {
   padding: 0.6rem;
   width: 5rem;
   align-self: flex-end;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--black);
+  color: var(--white);
   border: 0;
 
   @media (min-width: 768px) {
     cursor: pointer;
   }
-}
-
-.img {
-  width: 100%;
-  height: 100%;
 }
 </style>

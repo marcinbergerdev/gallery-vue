@@ -14,10 +14,6 @@
   </Teleport>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style lang="scss" scoped>
 dialog {
   position: absolute;
@@ -27,7 +23,7 @@ dialog {
 
   width: 75%;
   padding: 20px;
-  background-color: #d5d5d5;
+  background-color: var(--modal-bg);
   border: 0;
 
   @media (min-width: 768px) {

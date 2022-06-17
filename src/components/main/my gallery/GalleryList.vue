@@ -2,13 +2,13 @@
   <section>
     <p v-if="emptyList" class="empty-list">your photos list is empty...</p>
     <ul id="myList" class="photos-list">
-      <gallery-item
+      <Gallery-item
         v-for="photo in myPhotos"
         :key="photo.id"
         :id="photo.id"
         :link="photo.url"
         @deleteSelectedPhoto="photoDelete"
-      ></gallery-item>
+      ></Gallery-item>
     </ul>
   </section>
 </template>
@@ -31,13 +31,13 @@ export default {
       const currentUser = localStorage.getItem("usersAccount");
       const users = localStorage.getItem("users");
       const usersList = JSON.parse(users);
-
       const selectedUser = usersList.find((user) => user.login === currentUser);
+
       const userIndex = usersList.findIndex(
         (user) => user.login === currentUser
       );
-      usersList.splice(userIndex, 1);
 
+      usersList.splice(userIndex, 1);
       const photoIndex = selectedUser.myGallery.findIndex(
         (photo) => photo.id === id
       );
@@ -89,37 +89,11 @@ section {
   text-align: center;
 }
 
-ul li {
-  list-style: none;
-}
-
 .empty-list {
   position: absolute;
   top: 5%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 2rem;
-}
-
-.photos-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20rem;
-
-  padding: 15rem 0;
-  background-image: linear-gradient(329deg, #b9b9b9, #fff, #b9b9b9);
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    flex-flow: row wrap;
-    gap: 13rem;
-
-    width: 100%;
-    height: calc(100vh - 7rem);
-    padding: 12rem;
-    overflow: auto;
-  }
 }
 </style>

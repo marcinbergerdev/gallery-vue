@@ -1,10 +1,10 @@
 <template>
   <article class="photos">
-      <div class="photos__img">
-        <slot></slot>
-      </div>
-      <slot name="button"></slot>
-    </article>
+    <div class="photos__img">
+      <slot></slot>
+    </div>
+    <slot name="button"></slot>
+  </article>
 </template>
 
 
@@ -35,7 +35,7 @@
     display: block;
     width: 200px;
     height: 1px;
-    background: #000;
+    background: var(--black);
   }
 
   &::before {
@@ -65,7 +65,7 @@
       display: block;
       width: 200px;
       height: 1px;
-      background: #000;
+      background: var(--black);
     }
 
     &::before {
@@ -80,5 +80,4 @@
     }
   }
 }
-
 </style>

@@ -10,10 +10,6 @@
   </Teleport>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style lang="scss" scoped>
 dialog {
   position: absolute;
@@ -22,7 +18,7 @@ dialog {
   transform: translate(-50%, -50%);
   width: 200px;
   padding: 20px 0;
-  background-color: #d5d5d5;
+  background-color: var(--modal-bg);
   border-radius: 25px;
   border: 0;
   box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.7);
@@ -34,7 +30,7 @@ dialog {
   text-align: center;
   &__header {
     font-size: 2.8rem;
-    color: #0ca433;
+    color: var(--succes-txt);
   }
 
   &__text {

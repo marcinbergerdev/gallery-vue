@@ -18,8 +18,8 @@ export default {};
    justify-content: center;
    align-items: center;
    min-height: 100vh;
-   padding: 0 50px;
-   background-color: #C0C0C0;
+   padding: 0 5rem;
+   background-color: var(--notfound-bg);
 }
 
 </style>

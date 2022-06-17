@@ -117,48 +117,13 @@ export default {
 .header-text {
   font-size: 1.7rem;
   letter-spacing: 1px;
-  color: #fff;
+  color: var(--white);
 }
 
 .account-notexist {
   font-size: 1.5rem;
-  margin-top: 19px;
+  margin-top: 1.9rem;
   text-align: center;
-  color: red;
-}
-
-.form-input {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-
-form {
-  padding: 10px;
-}
-
-.form-input label {
-  font-size: 1.5rem;
-}
-
-.form-input input {
-  margin-top: 5px;
-  padding: 6px;
-}
-.form-input span {
-  color: red;
-}
-
-.form-sendBtn {
-  width: 100%;
-  margin-top: 20px;
-  padding: 13px 0;
-  background-color: #000;
-  color: #fff;
-  border: 0;
-
-  @media (min-width: 768px) {
-    cursor: pointer;
-  }
+  color: var(--red);
 }
 </style>

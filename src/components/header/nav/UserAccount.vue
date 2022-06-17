@@ -17,7 +17,7 @@ export default {
 .user-icon {
   width: 2.5rem;
   height: 2.5rem;
-  margin-right: 20px;
-  color: #fff;
+  margin-right: 2rem;
+  color: var(--white);
 }
 </style>

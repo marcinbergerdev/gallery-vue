@@ -43,7 +43,7 @@ export default {
     display: block;
     width: 3.6rem;
     height: 100%;
-    background-color: #333;
+    background-color: var(--language-bg);
     opacity: 0.4;
     transition: transform 0.2s ease-in-out;
   }
@@ -55,7 +55,7 @@ export default {
     font-family: "Grape Nuts", cursive;
     background-color: transparent;
     border: 0;
-    color: #fff;
+    color: var(--white);
     @media (min-width: 768px) {
       cursor: pointer;
     }

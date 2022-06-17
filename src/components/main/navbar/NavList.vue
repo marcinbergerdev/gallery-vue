@@ -1,13 +1,13 @@
 <template>
   <nav class="nav" :class="active">
     <ul class="nav__list">
-      <nav-item
+      <Nav-item
         v-for="link in menuLinks"
         :key="link.id"
         :id="link.id"
         :name="link.name"
         :user-logg="this.userLogg"
-      ></nav-item>
+      ></Nav-item>
     </ul>
   </nav>
 </template>
@@ -51,7 +51,7 @@ export default {
   z-index: 50;
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: var(--black);
   opacity: 0;
   transition: 0.4s ease-in-out;
 
@@ -60,8 +60,8 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    padding: 50px 60px;
+    gap: 1rem;
+    padding: 5rem 6rem;
     min-height: 100%;
   }
 

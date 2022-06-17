@@ -3,21 +3,18 @@
     <router-view name="myaccount"></router-view>
     <router-view :activation="this.activation"></router-view>
 
-
     <hamburger-button :activation="this.activation"></hamburger-button>
   </section>
 </template>
 
 <script>
-
 import HamburgerButton from "./hamburger/HamburgerButton.vue";
 
 export default {
   components: {
-
     HamburgerButton,
   },
-  props: ["activation"]
+  props: ["activation"],
 };
 </script>
 

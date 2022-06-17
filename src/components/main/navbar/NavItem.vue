@@ -32,7 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 a {
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
   opacity: 0.7;
 
@@ -45,16 +45,16 @@ a {
   padding: 10px;
   font-size: 2rem;
   list-style: none;
-  color: #fff;
+  color: var(--white);
   background-color: transparent;
 
   @media (orientation: landscape) {
-    padding: 5px;
+    padding: 0.5rem;
     font-size: 1.7rem;
   }
 
   @media (min-width: 768px) {
-    margin-top: 30px;
+    margin-top: 3rem;
     font-size: 1.7rem;
     cursor: pointer;
   }

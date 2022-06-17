@@ -6,8 +6,6 @@
   </button>
 </template>
 
-
-
 <script>
 export default {
   inject: ["toggleMenu"],
@@ -44,7 +42,7 @@ export default {
       display: block;
       width: 100%;
       height: 0.2rem;
-      background-color: rgb(255, 255, 255);
+      background-color: var(--white);
       transition: all 0.3s ease-in-out;
 
       &::before,
@@ -54,7 +52,7 @@ export default {
         display: block;
         width: 100%;
         height: 0.2rem;
-        background-color: rgb(255, 255, 255);
+        background-color: var(--white);
         transition: all 0.3s ease-in-out;
       }
 

@@ -63,8 +63,8 @@ export default {
 
   @media (min-width: 768px) {
     position: static;
-    min-height: 70px;
-    background-color: #000;
+    min-height: 7rem;
+    background-color: var(--black);
   }
 }
 
@@ -74,7 +74,7 @@ export default {
 }
 
 .show-nav {
-  background-color: #000;
+  background-color: var(--black);
   transition: .3s ease-in-out;
 }
 </style>

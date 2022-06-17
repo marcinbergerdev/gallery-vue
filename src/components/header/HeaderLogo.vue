@@ -2,17 +2,13 @@
   <h1 class="logo">Galerion</h1>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style lang="scss" scoped>
 .logo {
-   margin-right: 30px;
+  margin-right: 3rem;
   font-size: 2.5rem;
   font-family: "Grape Nuts", cursive;
   text-decoration: none;
-  color: #fff;
+  color: var(--white);
 
   @media (min-width: 768px) {
     font-size: 4rem;

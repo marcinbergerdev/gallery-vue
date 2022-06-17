@@ -35,7 +35,7 @@ export default {
   },
   created() {
     const pageWidth = window.innerWidth;
-    if(pageWidth <= 768) this.hiddenSection = true
+    if (pageWidth <= 768) this.hiddenSection = true;
     window.addEventListener("resize", this.homePageHidden);
   },
 };
@@ -45,7 +45,7 @@ export default {
 .homepage-header {
   min-height: 100vh;
   text-align: center;
-  background-color: #4c4c4c;
+  background-color: var(--homepage-bg);
   overflow: hidden;
 
   &__mobileBg {
@@ -56,13 +56,13 @@ export default {
 
   &__button {
     display: block;
-    margin: 100px auto 50px auto;
-    padding: 10px;
-    width: 100px;
+    margin: 10rem auto 5rem auto;
+    padding: 1rem;
+    width: 10rem;
     font-size: 1.2rem;
     text-decoration: none;
-    background-color: #000;
-    color: #fff;
+    background-color: var(--black);
+    color: var(--white);
     border: 0;
     box-shadow: 0px 1px 17px rgb(199, 197, 197);
   }
@@ -74,8 +74,8 @@ export default {
   &__left,
   &__right {
     position: absolute;
-    width: 500px;
-    height: 150px;
+    width: 50rem;
+    height: 15rem;
     background-color: #060606;
   }
 
@@ -95,7 +95,7 @@ export default {
   @media (orientation: landscape) {
     &__left,
     &__right {
-      height: 115px;
+      height: 11.5rem;
     }
 
     &__left {
