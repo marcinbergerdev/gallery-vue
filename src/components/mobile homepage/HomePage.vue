@@ -1,5 +1,5 @@
 <template>
-  <section class="homepage-header">
+  <section class="homepage-header" v-if="hiddenSection">
     <img
       class="homepage-header__mobileBg"
       src="../../assets/backgroundMobile.jpg"
@@ -19,7 +19,25 @@
 
 <script>
 export default {
+  data() {
+    return {
+      hiddenSection: false,
+    };
+  },
+  methods: {
+    homePageHidden(value) {
+      const width = value.target.innerWidth;
 
+      if (width <= 768) {
+        this.hiddenSection = true;
+      } else {
+        this.hiddenSection = false;
+      }
+    },
+  },
+  created() {
+    window.addEventListener("resize", this.homePageHidden);
+  },
 };
 </script>
 
@@ -47,10 +65,6 @@ export default {
     color: #fff;
     border: 0;
     box-shadow: 0px 1px 17px rgb(199, 197, 197);
-  }
-
-  @media (min-width: 768px) {
-    display: none;
   }
 }
 
