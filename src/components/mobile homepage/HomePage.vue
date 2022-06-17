@@ -15,8 +15,6 @@
   </section>
 </template>
 
-
-
 <script>
 export default {
   data() {
@@ -36,6 +34,8 @@ export default {
     },
   },
   created() {
+    const pageWidth = window.innerWidth;
+    if(pageWidth <= 768) this.hiddenSection = true
     window.addEventListener("resize", this.homePageHidden);
   },
 };
