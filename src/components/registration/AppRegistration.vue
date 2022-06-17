@@ -1,12 +1,14 @@
 <template>
-  <section class="form-wrapper">
-    <article class="form-box">
-      <header class="form-header">
-        <h1 class="form-header__text">Registration</h1>
-        <router-link to="/home" class="form-header__button">Back</router-link>
-      </header>
-      <p class="accountExist" v-if="accountStatus">account already exists</p>
+  <Registration-card>
+    <template #default>
+      <h1 class="form-header__text">Registration</h1>
+    </template>
 
+    <template #messageError>
+      <p class="accountExist" v-if="accountStatus">account already exists</p>
+    </template>
+
+    <template #formValidation>
       <Form @submit="searchLocaleStorage">
         <div class="form-input">
           <label for="login">Login <span>*</span></label>
@@ -46,17 +48,23 @@
 
         <button class="form-sendBtn">Create</button>
       </Form>
-    </article>
+    </template>
+  </Registration-card>
 
-    <error-alert v-if="confirmAndLeaveActivity">
-      <button class="modal-buttons error" @click="closeWindowErrorModal">Cancel</button>
-      <button class="modal-buttons error" @click="confirmAndLeaveErrorModal">Okey</button>
-    </error-alert>
+  <Error-alert v-if="confirmAndLeaveActivity">
+    <button class="modal-buttons error" @click="closeWindowErrorModal">
+      Cancel
+    </button>
+    <button class="modal-buttons error" @click="confirmAndLeaveErrorModal">
+      Okey
+    </button>
+  </Error-alert>
 
-    <succes-alert v-if="createdSuccesActivity">
-      <button class="modal-buttons succes" @click="successModalGoToLogin">OK</button>
-    </succes-alert>
-  </section>
+  <Succes-alert v-if="createdSuccesActivity">
+    <button class="modal-buttons succes" @click="successModalGoToLogin">
+      OK
+    </button>
+  </Succes-alert>
 </template>
 
 <script>
@@ -64,6 +72,7 @@ import { Field, Form, ErrorMessage } from "vee-validate";
 import ErrorAlert from "../alerts/ErrorAlert.vue";
 import SuccesAlert from "../alerts/SuccessAlert.vue";
 import router from "@/router";
+import RegistrationCard from "../card/RegistrationCard.vue";
 
 export default {
   components: {
@@ -72,6 +81,7 @@ export default {
     ErrorMessage,
     ErrorAlert,
     SuccesAlert,
+    RegistrationCard,
   },
   data() {
     return {

@@ -1,13 +1,16 @@
 <template>
-  <section class="form-wrapper">
-    <article class="form-box">
-      <header class="form-header">
-        <h1 class="form-header__text">Login</h1>
-        <router-link to="/home" class="form-header__button">Back</router-link>
-      </header>
-      <p class="accountNotExist" v-if="accountStatus">
+  <Registration-card>
+    <template #default>
+      <h1 class="header-text">Login</h1>
+    </template>
+
+    <template #messageError>
+      <p class="account-notexist" v-if="accountStatus">
         The account does not exist
       </p>
+    </template>
+
+    <template #formValidation>
       <Form @submit="sendData">
         <div class="form-input">
           <label for="login">Login</label>
@@ -35,19 +38,21 @@
 
         <button class="form-sendBtn">Log in</button>
       </Form>
-    </article>
-  </section>
+    </template>
+  </Registration-card>
 </template>
 
 <script>
 import { Field, Form, ErrorMessage } from "vee-validate";
 import router from "@/router";
+import RegistrationCard from "../card/RegistrationCard.vue";
 
 export default {
   components: {
     Field,
     Form,
     ErrorMessage,
+    RegistrationCard,
   },
   data() {
     return {
@@ -109,57 +114,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-  background-color: #f4f4f4;
+.header-text {
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  color: #fff;
 }
 
-.form-box {
-  width: 80%;
-  margin: 50px 0;
-  border: 1px solid #000;
-  background-color: #fff;
-  animation: registrationAnimation;
-  animation-duration: 0.2s;
-
-  @media (min-width: 768px) {
-    max-width: 450px;
-  }
-}
-
-.accountNotExist {
+.account-notexist {
   font-size: 1.5rem;
   margin-top: 19px;
   text-align: center;
   color: red;
-}
-
-.form-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 15px;
-  background-color: #000;
-
-  &__text {
-    font-size: 1.7rem;
-    letter-spacing: 1px;
-    color: #fff;
-  }
-
-  &__button {
-    padding: 5px;
-    font-size: 1.4rem;
-    text-decoration: none;
-    background-color: #000;
-    color: #fff;
-    border-radius: 17px;
-    border: 2px solid #fff;
-  }
 }
 
 .form-input {
@@ -191,5 +156,9 @@ form {
   background-color: #000;
   color: #fff;
   border: 0;
+
+  @media (min-width: 768px) {
+    cursor: pointer;
+  }
 }
 </style>

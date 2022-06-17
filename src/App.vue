@@ -1,4 +1,5 @@
 <template>
+  <router-view name='validation'></router-view>
   <router-view name="homepage"></router-view>
   <router-view :activation="this.activation"></router-view>
 

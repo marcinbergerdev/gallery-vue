@@ -73,11 +73,11 @@ const router = createRouter({
             },
          ],
       },
-      { name: "login-section", path: "/login", component: AppLogin },
+      { name: "login-section", path: "/login", components: {validation: AppLogin} },
       {
          name: "new-account",
          path: "/registration",
-         component: AppRegistration,
+         components: {validation: AppRegistration},
       },
       {
          path: "/:notFound(.*)",
