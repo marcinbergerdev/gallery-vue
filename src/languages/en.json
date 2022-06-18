@@ -1,0 +1,50 @@
+{
+  "homePage": "Search Gallery",
+
+  "back": "Back",
+  "addPhoto": "Add",
+  "deletePhoto": "Delete",
+
+  "login": {
+    "logo": "Log in",
+    "header": "Login",
+    "errorMessage": "The account does not exist!",
+    "input": "Login",
+    "password": "Password",
+    "confirm": "Log in"
+  },
+
+  "signin": {
+    "logo": "Sign in",
+    "header": "Registration",
+    "errorMessage": "Account already exists",
+    "input": "Login",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "confirm": "Create"
+  },
+
+  "error": {
+    "header": "Warning!",
+    "descriptionOne": "Are you sure you wont to leave?",
+    "descriptionTwo": "your data will be deleted!",
+    "confirm": "Okey",
+    "cancel": "Cancel"
+  },
+
+  "succes": {
+    "header": "Succes!",
+    "description": "Account successfully created",
+    "confirm": "OK"
+  },
+
+  "menu": {
+    "random": "Random",
+    "dogs": "Dogs",
+    "cats": "Cats",
+    "foods": "Foods",
+    "fox": "Fox"
+  },
+
+  "signout": "Sign out"
+}

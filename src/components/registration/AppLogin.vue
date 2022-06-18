@@ -1,19 +1,19 @@
 <template>
   <Registration-card>
     <template #default>
-      <h1 class="header-text">Login</h1>
+      <h1 class="header-text">{{$t("login.header")}}</h1>
     </template>
 
     <template #messageError>
       <p class="account-notexist" v-if="accountStatus">
-        The account does not exist
+        {{$t("login.errorMessage")}}
       </p>
     </template>
 
     <template #formValidation>
       <Form @submit="sendData">
         <div class="form-input">
-          <label for="login">Login</label>
+          <label for="login">{{$t("login.input")}}</label>
           <Field
             id="login"
             name="Login"
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-input">
-          <label for="password">Password</label>
+          <label for="password">{{$t("login.password")}}</label>
           <Field
             id="password"
             name="password"
@@ -36,7 +36,7 @@
           <ErrorMessage name="password" />
         </div>
 
-        <button class="form-sendBtn">Log in</button>
+        <button class="form-sendBtn">{{$t("login.confirm")}}</button>
       </Form>
     </template>
   </Registration-card>

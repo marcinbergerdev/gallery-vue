@@ -2,8 +2,8 @@
   <Teleport to="body">
     <dialog open>
       <article class="modal-container">
-        <h1 class="modal-container__header">Succes!</h1>
-        <p class="modal-container__text">Account successfully created</p>
+        <h1 class="modal-container__header">{{$t("succes.header")}}</h1>
+        <p class="modal-container__text">{{$t("succes.description")}}</p>
         <slot></slot>
       </article>
     </dialog>

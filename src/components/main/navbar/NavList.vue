@@ -5,7 +5,6 @@
         v-for="link in menuLinks"
         :key="link.id"
         :id="link.id"
-        :name="link.name"
         :user-logg="this.userLogg"
       ></Nav-item>
     </ul>

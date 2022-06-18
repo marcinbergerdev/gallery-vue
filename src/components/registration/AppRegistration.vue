@@ -1,17 +1,17 @@
 <template>
   <Registration-card>
     <template #default>
-      <h1 class="form-text">Registration</h1>
+      <h1 class="form-text">{{$t("signin.header")}}</h1>
     </template>
 
     <template #messageError>
-      <p class="account-exist" v-if="accountStatus">account already exists</p>
+      <p class="account-exist" v-if="accountStatus">{{$t("signin.errorMessage")}}</p>
     </template>
 
     <template #formValidation>
       <Form @submit="searchLocaleStorage">
         <div class="form-input">
-          <label for="login">Login <span>*</span></label>
+          <label for="login">{{$t("signin.input")}} <span>*</span></label>
           <Field
             id="login"
             name="login"
@@ -23,7 +23,7 @@
         </div>
 
         <div class="form-input">
-          <label for="password">Password <span>*</span></label>
+          <label for="password">{{$t("signin.password")}} <span>*</span></label>
           <Field
             id="password"
             name="password"
@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-input">
-          <label for="confirm-password">Confirm password <span>*</span></label>
+          <label for="confirm-password">{{$t("signin.confirmPassword")}} <span>*</span></label>
           <Field
             id="confrim-password"
             name="confrim-password"
@@ -46,23 +46,23 @@
           <ErrorMessage name="confrim-password" />
         </div>
 
-        <button class="form-sendBtn">Create</button>
+        <button class="form-sendBtn">{{$t("signin.confirm")}}</button>
       </Form>
     </template>
   </Registration-card>
 
   <Error-alert v-if="confirmAndLeaveActivity">
     <button class="modal-buttons error" @click="closeWindowErrorModal">
-      Cancel
+      {{$t("error.cancel")}}
     </button>
     <button class="modal-buttons error" @click="confirmAndLeaveErrorModal">
-      Okey
+      {{$t("error.confirm")}}
     </button>
   </Error-alert>
 
   <Succes-alert v-if="createdSuccesActivity">
     <button class="modal-buttons succes" @click="successModalGoToLogin">
-      OK
+      {{$t("succes.confirm")}}
     </button>
   </Succes-alert>
 </template>

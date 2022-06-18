@@ -1,9 +1,9 @@
 <template>
   <article class="registration-container" :class="active">
-    <router-link class="registration-link" to="/login">Log in</router-link>
+    <router-link class="registration-link" to="/login">{{$t("login.logo")}}</router-link>
 
     <router-link class="registration-link" to="/registration"
-      >Sign in</router-link
+      >{{$t("signin.logo")}}</router-link
     >
   </article>
 </template>

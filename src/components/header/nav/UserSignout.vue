@@ -1,6 +1,6 @@
 <template>
   <article class="registration-container" :class="active">
-    <button class="registration-link" @click="signOut">Sign out</button>
+    <button class="registration-link" @click="signOut">{{$t("signout")}}</button>
   </article>
 </template>
 

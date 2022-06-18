@@ -1,0 +1,50 @@
+{
+  "homePage": "Galerie suchen",
+
+  "back": "Zurück",
+  "addPhoto": "Hinzufügen",
+  "deletePhoto": "Löschen",
+
+  "login": {
+    "logo": "Anmelden",
+    "header": "Anmelden",
+    "errorMessage": "Das Konto existiert nicht!",
+    "input": "Anmeldename",
+    "password": "Passwort",
+    "confirm": "Anmelden"
+  },
+
+  "signin": {
+    "logo": "Registrierung",
+    "header": "Registrierung",
+    "errorMessage": "Konto existiert bereits!",
+    "input": "Anmelden",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "confirm": "Erstellen"
+  },
+
+  "error": {
+    "header": "Warnung!",
+    "descriptionOne": "Sind Sie sicher, dass Sie gehen wollen?",
+    "descriptionTwo": "werden Ihre Daten gelöscht!",
+    "confirm": "Okey",
+    "cancel": "Abbrechen"
+  },
+
+  "succes": {
+    "header": "Geschafft!",
+    "description": "Konto erfolgreich erstellt",
+    "confirm": "OK"
+  },
+
+  "menu": {
+    "random": "Zufällig",
+    "dogs": "Hund",
+    "cats": "Katze",
+    "foods": "Essen",
+    "fox": "Fuchs"
+  },
+
+  "signout": "Abmeldung"
+}

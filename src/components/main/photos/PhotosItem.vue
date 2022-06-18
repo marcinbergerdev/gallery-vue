@@ -11,7 +11,7 @@
           @click="addPhotoToGallery"
           :class="disabled"
         >
-          Add
+          {{$t("addPhoto")}}
         </button>
       </template>
     </Photos-item-card>

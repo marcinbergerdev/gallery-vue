@@ -10,7 +10,7 @@
           class="photos-button"
           @click="$emit('deleteSelectedPhoto', id)"
         >
-          Delete
+          {{$t("deletePhoto")}}
         </button>
       </template>
     </Photos-item-card>

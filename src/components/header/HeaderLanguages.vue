@@ -1,11 +1,7 @@
 <template>
-  <article
-    class="languages-container"
-    :class="btnAnimationActivity"
-    @click="changeLanguages"
-  >
-    <button class="languages-container__btn">DE</button>
-    <button class="languages-container__btn">EN</button>
+  <article class="languages-container" :class="btnAnimationActivity">
+    <button class="languages-container__btn" @click="changeLanguages">EN</button>
+    <button class="languages-container__btn" @click="changeLanguages">DE</button>
   </article>
 </template>
 
@@ -19,6 +15,14 @@ export default {
   methods: {
     changeLanguages() {
       this.btnAnimation = !this.btnAnimation;
+      const languages = this.$i18n.locale;
+
+      if(languages === 'en'){
+        this.$i18n.locale = 'de';
+      }else {
+        this.$i18n.locale = 'en';
+      }
+
     },
   },
   computed: {
@@ -67,6 +71,4 @@ export default {
     transition: 0.2s ease-in-out;
   }
 }
-
-
 </style>

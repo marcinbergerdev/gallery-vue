@@ -3,7 +3,7 @@
     <article class="form-box">
       <header class="form-header">
         <slot></slot>
-        <router-link to="/home" class="form-header__button">Back</router-link>
+        <router-link to="/home" class="form-header__button">{{$t("back")}}</router-link>
       </header>
 
       <slot name="messageError"></slot>

@@ -11,7 +11,7 @@
       <div class="boxDecorations__right"></div>
     </article>
 
-    <a href="#myList" class="homepage-header__button">Search Gallery</a>
+    <a href="#myList" class="homepage-header__button">{{ $t("homePage")}}</a>
   </section>
 </template>
 

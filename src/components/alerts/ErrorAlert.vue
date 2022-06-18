@@ -2,9 +2,9 @@
   <Teleport to="body">
     <dialog open>
       <article class="modal-container">
-        <h1 class="modal-container__header">Warning!</h1>
-        <p class="modal-container__text">Are you sure you wont to leave?</p>
-        <p class="modal-container__text">your data will be deleted!</p>
+        <h1 class="modal-container__header">{{$t("error.header")}}</h1>
+        <p class="modal-container__text">{{$t("error.descriptionOne")}}</p>
+        <p class="modal-container__text">{{$t("error.descriptionTwo")}}</p>
 
         <div class="modal-container__buttons">
           <slot></slot>

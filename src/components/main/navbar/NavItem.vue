@@ -1,6 +1,6 @@
 <template>
   <li class="link">
-    <router-link :to="categoryLink">{{ name }}</router-link>
+    <router-link :to="categoryLink">{{ $t(`menu.${id}`)}}</router-link>
   </li>
 </template>
 
@@ -8,10 +8,6 @@
 export default {
   props: {
     id: {
-      type: String,
-      required: true,
-    },
-    name: {
       type: String,
       required: true,
     },

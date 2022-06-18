@@ -3,6 +3,8 @@
   <router-view name="homepage"></router-view>
   <router-view :activation="this.activation"></router-view>
 
+  <!-- <HelloI18n /> -->
+
   <router-view
     name="main"
     :activation="this.activation"
@@ -11,9 +13,11 @@
 </template>
 
 <script>
+// import HelloI18n from './components/HelloI18n.vue';
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 export default {
+  // components: { HelloI18n },
   provide() {
     return {
       toggleMenu: this.toggleHamburgerAndMenu,
@@ -31,27 +35,22 @@ export default {
       menuLinks: [
         {
           id: "random",
-          name: "Random",
           url: "https://picsum.photos/200/300",
         },
         {
           id: "dogs",
-          name: "Dogs",
           url: "https://dog.ceo/api/breeds/image/random",
         },
         {
           id: "cats",
-          name: "Cats",
           url: "https://api.thecatapi.com/v1/images/search",
         },
         {
           id: "foods",
-          name: "Foods",
           url: "https://foodish-api.herokuapp.com/api/",
         },
         {
           id: "fox",
-          name: "Fox",
           url: "https://randomfox.ca/floof/",
         },
       ],
