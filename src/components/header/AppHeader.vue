@@ -60,7 +60,6 @@ export default {
   padding: 1rem;
   background-color: transparent;
 
-
   @media (min-width: 768px) {
     position: static;
     min-height: 7rem;

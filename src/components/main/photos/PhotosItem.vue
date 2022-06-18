@@ -87,18 +87,7 @@ export default {
 
 <style lang="scss" scoped>
 .photos-button {
-  position: relative;
-  margin-top: 2rem;
-  padding: 0.6rem;
-  width: 5rem;
-  align-self: flex-end;
-  background-color: var(--black);
-  color: var(--white);
-  border: 0;
-
-  @media (min-width: 768px) {
-    cursor: pointer;
-  }
+  width: 32%;
 }
 
 .disabled {

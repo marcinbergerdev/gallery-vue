@@ -3,8 +3,6 @@
   <router-view name="homepage"></router-view>
   <router-view :activation="this.activation"></router-view>
 
-  <!-- <HelloI18n /> -->
-
   <router-view
     name="main"
     :activation="this.activation"
@@ -13,11 +11,9 @@
 </template>
 
 <script>
-// import HelloI18n from './components/HelloI18n.vue';
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 export default {
-  // components: { HelloI18n },
   provide() {
     return {
       toggleMenu: this.toggleHamburgerAndMenu,
@@ -201,6 +197,20 @@ ul li {
   }
 }
 
+.photos-button {
+  position: relative;
+  margin-top: 2rem;
+  padding: 0.6rem;
+  align-self: flex-end;
+  background-color: var(--black);
+  color: var(--white);
+  border: 0;
+
+  @media (min-width: 768px) {
+    cursor: pointer;
+  }
+}
+
 .img {
   width: 100%;
   height: 100%;
@@ -238,6 +248,25 @@ form {
 
   @media (min-width: 768px) {
     cursor: pointer;
+  }
+}
+
+.registration-container {
+  position: fixed;
+  bottom: 10%;
+  right: 50%;
+  transform: translateX(300%);
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+
+  @media (min-width: 768px) {
+    position: static;
+    top: 0;
+    left: 0;
+    transform: none;
+    transition: all 0s ease 0s;
+    opacity: 1;
+    width: auto;
   }
 }
 </style>

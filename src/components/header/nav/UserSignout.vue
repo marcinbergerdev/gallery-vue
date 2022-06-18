@@ -28,24 +28,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.registration-container {
-  position: fixed;
-  bottom: 10%;
-  right: 50%;
-  transform: translateX(300%);
-  opacity: 0;
-  transition: all 0.4s ease-in-out;
-
-  @media (min-width: 768px) {
-    position: static;
-    top: 0;
-    left: 0;
-    transform: none;
-    transition: all 0s ease 0s;
-    opacity: 1;
-    width: auto;
-  }
-}
 
 .active {
   transform: translateX(50%);
