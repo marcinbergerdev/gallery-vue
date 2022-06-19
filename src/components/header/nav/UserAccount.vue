@@ -17,7 +17,11 @@ export default {
 .user-icon {
   width: 2.5rem;
   height: 2.5rem;
-  margin-right: 2rem;
+  margin-right: 1.1rem;
   color: var(--white);
+
+  @media(min-width: 768px){
+    margin-right: 2rem;
+  }
 }
 </style>

@@ -130,8 +130,8 @@ html {
 }
 
 .registration-link {
-  margin: 0 20px;
-  padding: 3px;
+  margin: 0 1rem;
+  padding-bottom: 3px;
   font-size: 1.5rem;
   text-decoration: none;
   color: var(--white);
@@ -163,6 +163,11 @@ html {
         transition: transform 0.2s ease-in-out;
       }
     }
+  }
+
+  @media (min-width: 370px) {
+    margin: 0 2rem;
+    padding: 3px;
   }
 }
 

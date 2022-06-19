@@ -6,11 +6,8 @@
       </template>
 
       <template #button>
-        <button
-          class="photos-button"
-          @click="$emit('deleteSelectedPhoto', id)"
-        >
-          {{$t("deletePhoto")}}
+        <button class="photos-button" @click="$emit('deleteSelectedPhoto', id)">
+          {{ $t("deletePhoto") }}
         </button>
       </template>
     </Photos-item-card>
@@ -38,7 +35,9 @@ export default {
 
 <style lang="scss" scoped>
 .photos-button {
-  width: 25%;
+  width: 37%;
+  @media (min-width: 370px) {
+    width: 25%;
+  }
 }
-
 </style>

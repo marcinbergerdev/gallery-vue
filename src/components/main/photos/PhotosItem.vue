@@ -11,7 +11,7 @@
           @click="addPhotoToGallery"
           :class="disabled"
         >
-          {{$t("addPhoto")}}
+          {{ $t("addPhoto") }}
         </button>
       </template>
     </Photos-item-card>
@@ -87,7 +87,10 @@ export default {
 
 <style lang="scss" scoped>
 .photos-button {
-  width: 32%;
+  width: 47%;
+  @media (min-width: 370px) {
+    width: 32%;
+  }
 }
 
 .disabled {
