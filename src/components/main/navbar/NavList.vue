@@ -74,7 +74,7 @@ export default {
 
     &__list {
       display: block;
-      width: 190px;
+      width: 19rem;
       height: calc(100vh - 7rem);
       overflow: auto;
     }

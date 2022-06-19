@@ -16,12 +16,12 @@ dialog {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 200px;
-  padding: 20px 0;
+  width: 20rem;
+  padding: 2rem 0;
   background-color: var(--modal-bg);
-  border-radius: 25px;
+  border-radius: 2.5rem;
   border: 0;
-  box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 10rem rgba(0, 0, 0, 0.7);
   animation: elementAnimation;
   animation-duration: 0.2s;
 }
@@ -34,7 +34,7 @@ dialog {
   }
 
   &__text {
-    margin-top: 10px;
+    margin-top: 1rem;
     font-size: 1.3rem;
   }
 }

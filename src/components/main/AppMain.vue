@@ -1,6 +1,9 @@
 <template>
   <main class="main-content">
-    <nav-list :activation="this.activation" :user-logg="this.userLogg"></nav-list>
+    <Nav-list
+      :activation="this.activation"
+      :user-logg="this.userLogg"
+    ></Nav-list>
     <router-view name="gallery"></router-view>
   </main>
 </template>
@@ -12,7 +15,7 @@ export default {
   components: {
     NavList,
   },
-  props: ["activation", "newPhotosList", 'userLogg'],
+  props: ["activation", "newPhotosList", "userLogg"],
 };
 </script>
 
@@ -22,7 +25,7 @@ export default {
 
   @media (min-width: 768px) {
     display: flex;
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 7rem);
   }
 }
 </style>

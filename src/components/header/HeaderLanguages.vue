@@ -53,7 +53,7 @@ export default {
   }
 
   &__btn {
-    margin: 0 5px;
+    margin: 0 0.5rem;
     padding: 0.2rem;
     font-size: 2rem;
     font-family: "Grape Nuts", cursive;

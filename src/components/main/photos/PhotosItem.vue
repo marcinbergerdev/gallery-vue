@@ -73,8 +73,8 @@ export default {
     },
   },
   watch: {
-    $route(value) {
-      this.disabledBtn(value.path);
+    $route(currentRoute) {
+      this.disabledBtn(currentRoute.path);
     },
   },
   created() {

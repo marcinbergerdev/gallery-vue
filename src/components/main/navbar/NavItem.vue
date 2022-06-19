@@ -1,6 +1,6 @@
 <template>
   <li class="link">
-    <router-link :to="categoryLink">{{ $t(`menu.${id}`)}}</router-link>
+    <router-link :to="categoryLink">{{ $t(`menu.${id}`) }}</router-link>
   </li>
 </template>
 
@@ -33,12 +33,12 @@ a {
   opacity: 0.7;
 
   &:hover,
-  &.router-link-active{
+  &.router-link-active {
     opacity: 1;
   }
 }
 .link {
-  padding: 10px;
+  padding: 1rem;
   font-size: 2rem;
   list-style: none;
   color: var(--white);

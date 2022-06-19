@@ -1,6 +1,8 @@
 <template>
   <article class="registration-container" :class="active">
-    <button class="registration-link" @click="signOut">{{$t("signout")}}</button>
+    <button class="registration-link" @click="signOut">
+      {{ $t("signout") }}
+    </button>
   </article>
 </template>
 
@@ -28,7 +30,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .active {
   transform: translateX(50%);
   transition: 0.4s ease-in-out;

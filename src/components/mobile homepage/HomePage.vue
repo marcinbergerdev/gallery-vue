@@ -64,7 +64,7 @@ export default {
     background-color: var(--black);
     color: var(--white);
     border: 0;
-    box-shadow: 0px 1px 17px rgb(199, 197, 197);
+    box-shadow: 0 1px 1.7rem rgb(199, 197, 197);
   }
 }
 

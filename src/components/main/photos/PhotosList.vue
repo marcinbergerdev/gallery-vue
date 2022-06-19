@@ -107,16 +107,20 @@ export default {
         this.userLoggStatus(true);
       }
     },
+    scrollToList() {
+      const scrollToElement = this.$refs["list"];
+      const top = scrollToElement.offsetTop;
+      window.scrollTo(0, top);
+    },
   },
   watch: {
     $route(newRoute) {
       if (newRoute.path === "/home") this.getPhotos("random");
+      this.scrollToList();
     },
     category(newRoute) {
       const currentRoute = this.$route.path;
-      const scrollToElement = this.$refs["list"];
-      const top = scrollToElement.offsetTop;
-      window.scrollTo(0, top);
+      this.scrollToList();
 
       newRoute !== undefined
         ? this.getPhotos(newRoute)

@@ -3,7 +3,7 @@
     <router-view name="myaccount"></router-view>
     <router-view :activation="this.activation"></router-view>
 
-    <hamburger-button :activation="this.activation"></hamburger-button>
+    <Hamburger-button :activation="this.activation"></Hamburger-button>
   </section>
 </template>
 

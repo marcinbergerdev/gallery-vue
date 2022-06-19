@@ -2,9 +2,9 @@
   <Teleport to="body">
     <dialog open>
       <article class="modal-container">
-        <h1 class="modal-container__header">{{$t("error.header")}}</h1>
-        <p class="modal-container__text">{{$t("error.descriptionOne")}}</p>
-        <p class="modal-container__text">{{$t("error.descriptionTwo")}}</p>
+        <h1 class="modal-container__header">{{ $t("error.header") }}</h1>
+        <p class="modal-container__text">{{ $t("error.descriptionOne") }}</p>
+        <p class="modal-container__text">{{ $t("error.descriptionTwo") }}</p>
 
         <div class="modal-container__buttons">
           <slot></slot>
@@ -22,18 +22,18 @@ dialog {
   transform: translate(-50%, -50%);
 
   width: 75%;
-  padding: 20px;
+  padding: 2rem;
   background-color: var(--modal-bg);
   border: 0;
 
   @media (min-width: 768px) {
-    max-width: 400px;
+    max-width: 40rem;
   }
 }
 
 .modal-container {
   &__header {
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     font-size: 2rem;
   }
 
@@ -43,7 +43,7 @@ dialog {
   }
 
   &__buttons {
-    margin-top: 10px;
+    margin-top: 1rem;
     text-align: end;
   }
 }

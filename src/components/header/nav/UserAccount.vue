@@ -20,8 +20,11 @@ export default {
   margin-right: 1.1rem;
   color: var(--white);
 
-  @media(min-width: 768px){
-    margin-right: 2rem;
+  @media (min-width: 370px) {
+    margin-right: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    margin-right: 3rem;
   }
 }
 </style>

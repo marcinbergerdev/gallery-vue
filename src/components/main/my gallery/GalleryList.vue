@@ -36,8 +36,8 @@ export default {
       const userIndex = usersList.findIndex(
         (user) => user.login === currentUser
       );
-
       usersList.splice(userIndex, 1);
+      
       const photoIndex = selectedUser.myGallery.findIndex(
         (photo) => photo.id === id
       );
