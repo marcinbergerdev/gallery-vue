@@ -1,3 +1,4 @@
+Live --> https://testgaleri.netlify.app/
 # gallery-vue
 
 ## Project setup
