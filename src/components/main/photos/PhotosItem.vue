@@ -74,11 +74,11 @@ export default {
   },
   watch: {
     $route(value) {
-      this.disabledBtn(value.href);
+      this.disabledBtn(value.path);
     },
   },
   created() {
-    const currentRoute = this.$route.href;
+    const currentRoute = this.$route.path;
     this.disabledBtn(currentRoute);
   },
 };

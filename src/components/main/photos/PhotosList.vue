@@ -110,11 +110,10 @@ export default {
   },
   watch: {
     $route(newRoute) {
-      if (newRoute.href === "/home") this.getPhotos("random");
+      if (newRoute.path === "/home") this.getPhotos("random");
     },
     category(newRoute) {
-      const currentRoute = this.$route.href;
-
+      const currentRoute = this.$route.path;
       const scrollToElement = this.$refs["list"];
       const top = scrollToElement.offsetTop;
       window.scrollTo(0, top);
@@ -128,7 +127,7 @@ export default {
   },
   created() {
     const newRoute = this.$route.params.category;
-    const currentRoute = this.$route.href;
+    const currentRoute = this.$route.path;
 
     currentRoute === "/home" || currentRoute === "/home/user"
       ? this.getPhotos("random")
