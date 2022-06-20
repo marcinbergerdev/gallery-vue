@@ -1,15 +1,15 @@
 # gallery-vue
-This is my first website that I wrote, it is made with Vue.js. ✌
-Live here 👉 https://testgaleri.netlify.app/
+# This is my first website that I wrote, it is made with Vue.js. ✌
+# Live here 👉 https://testgaleri.netlify.app/
 
-#How it works?
+## How it works?
   - Change languages.
   - Create account (Login, Signin).
   - Select photos category.
   - After login add photos to your ouw gallery.
   - Delete photos.
 
-#It's made?
+## It's made?
   - Vue.js (Vue CLI).
   - Vue Routing.
   - API Axios (Photos)
