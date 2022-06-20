@@ -1,4 +1,3 @@
-# gallery-vue
 # This is my first website that I wrote, it is made with Vue.js. ✌
 # Live here 👉 https://testgaleri.netlify.app/
 
@@ -34,4 +33,3 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-# gallery-vue
