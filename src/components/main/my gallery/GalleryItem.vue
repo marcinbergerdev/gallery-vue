@@ -1,6 +1,6 @@
 <template>
   <li :id="id">
-    <Photos-item-card>
+    <photos-item-card>
       <template #default>
         <v-lazy-image class="img" :src="link" alt="photo" />
       </template>
@@ -10,7 +10,7 @@
           {{ $t("deletePhoto") }}
         </button>
       </template>
-    </Photos-item-card>
+    </photos-item-card>
   </li>
 </template>
 

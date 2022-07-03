@@ -1,13 +1,13 @@
 <template>
   <ul id="myList" ref="list" class="photos-list">
-    <Photos-item
+    <photos-item
       v-for="photo in newPhotos"
       :key="photo.id"
       :id="photo.id"
       :link="photo.url"
       :category="this.category"
       @add-photo="this.addPhoto"
-    ></Photos-item>
+    ></photos-item>
   </ul>
 </template>
 

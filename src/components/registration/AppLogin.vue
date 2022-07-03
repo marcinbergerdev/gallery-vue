@@ -1,5 +1,5 @@
 <template>
-  <Registration-card>
+  <registration-card>
     <template #default>
       <h1 class="header-text">{{$t("login.header")}}</h1>
     </template>
@@ -39,7 +39,7 @@
         <button class="form-sendBtn">{{$t("login.confirm")}}</button>
       </Form>
     </template>
-  </Registration-card>
+  </registration-card>
 </template>
 
 <script>

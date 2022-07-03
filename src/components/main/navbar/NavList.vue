@@ -1,12 +1,12 @@
 <template>
   <nav class="nav" :class="active">
     <ul class="nav__list">
-      <Nav-item
+      <nav-item
         v-for="link in menuLinks"
         :key="link.id"
         :id="link.id"
         :user-logg="this.userLogg"
-      ></Nav-item>
+      ></nav-item>
     </ul>
   </nav>
 </template>

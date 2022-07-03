@@ -1,5 +1,5 @@
 <template>
-  <Registration-card>
+  <registration-card>
     <template #default>
       <h1 class="form-text">{{$t("signin.header")}}</h1>
     </template>
@@ -49,22 +49,22 @@
         <button class="form-sendBtn">{{$t("signin.confirm")}}</button>
       </Form>
     </template>
-  </Registration-card>
+  </registration-card>
 
-  <Error-alert v-if="confirmAndLeaveActivity">
+  <error-alert v-if="confirmAndLeaveActivity">
     <button class="modal-buttons error" @click="closeWindowErrorModal">
       {{$t("error.cancel")}}
     </button>
     <button class="modal-buttons error" @click="confirmAndLeaveErrorModal">
       {{$t("error.confirm")}}
     </button>
-  </Error-alert>
+  </error-alert>
 
-  <Succes-alert v-if="createdSuccesActivity">
+  <succes-alert v-if="createdSuccesActivity">
     <button class="modal-buttons succes" @click="successModalGoToLogin">
       {{$t("succes.confirm")}}
     </button>
-  </Succes-alert>
+  </succes-alert>
 </template>
 
 <script>

@@ -2,13 +2,13 @@
   <section>
     <p v-if="emptyList" class="empty-list">your photos list is empty...</p>
     <ul id="myList" class="photos-list">
-      <Gallery-item
+      <gallery-item
         v-for="photo in myPhotos"
         :key="photo.id"
         :id="photo.id"
         :link="photo.url"
         @deleteSelectedPhoto="photoDelete"
-      ></Gallery-item>
+      ></gallery-item>
     </ul>
   </section>
 </template>

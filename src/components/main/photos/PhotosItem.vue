@@ -1,6 +1,6 @@
 <template>
   <li :id="id">
-    <Photos-item-card :class="disabledAfterAdded">
+    <photos-item-card :class="disabledAfterAdded">
       <template #default>
         <v-lazy-image class="img" :src="link" alt="photo" />
       </template>
@@ -14,7 +14,7 @@
           {{ $t("addPhoto") }}
         </button>
       </template>
-    </Photos-item-card>
+    </photos-item-card>
   </li>
 </template>
 

@@ -1,9 +1,9 @@
 <template>
   <main class="main-content">
-    <Nav-list
+    <nav-list
       :activation="this.activation"
       :user-logg="this.userLogg"
-    ></Nav-list>
+    ></nav-list>
     <router-view name="gallery"></router-view>
   </main>
 </template>
