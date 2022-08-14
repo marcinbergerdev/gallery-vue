@@ -31,9 +31,7 @@ export default {
       const userHeight = window.innerHeight;
       const currentHeight = window.scrollY;
 
-      currentHeight >= userHeight
-        ? (this.scrollMobileNavigation = true)
-        : (this.scrollMobileNavigation = false);
+      currentHeight >= userHeight ? (this.scrollMobileNavigation = true) : (this.scrollMobileNavigation = false);
     },
   },
   computed: {
