@@ -1,4 +1,5 @@
 <template>
+  <!-- Raz używasz class-class a raz classClass + te nazwy klas do  zmiany -->
   <section class="form-wrapper">
     <article class="form-box">
       <header class="form-header">
