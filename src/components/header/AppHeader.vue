@@ -30,7 +30,6 @@ export default {
     showMobileNav() {
       const userHeight = window.innerHeight;
       const currentHeight = window.scrollY;
-
       this.scrollMobileNavigation = currentHeight >= userHeight ? true : false;
     },
   },
@@ -71,5 +70,9 @@ export default {
     background-color: var(--black);
     transition: 0.3s ease-in-out;
   }
+}
+.show-nav {
+  background-color: var(--black);
+  transition: 0.3s ease-in-out;
 }
 </style>
