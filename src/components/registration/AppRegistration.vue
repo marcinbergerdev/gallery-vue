@@ -1,17 +1,19 @@
 <template>
   <registration-card>
     <template #default>
-      <h1 class="form-text">{{$t("signin.header")}}</h1>
+      <h1 class="form-text">{{ $t("signIn.header") }}</h1>
     </template>
 
     <template #messageError>
-      <p class="account-exist" v-if="accountStatus">{{$t("signin.errorMessage")}}</p>
+      <p class="account-exist" v-if="accountStatus">
+        {{ $t("signIn.errorMessage") }}
+      </p>
     </template>
 
     <template #formValidation>
       <Form @submit="searchLocaleStorage">
         <div class="form-input">
-          <label for="login">{{$t("signin.input")}} <span>*</span></label>
+          <label for="login">{{ $t("signIn.input") }} <span>*</span></label>
           <Field
             id="login"
             name="login"
@@ -23,7 +25,9 @@
         </div>
 
         <div class="form-input">
-          <label for="password">{{$t("signin.password")}} <span>*</span></label>
+          <label for="password"
+            >{{ $t("signIn.password") }} <span>*</span></label
+          >
           <Field
             id="password"
             name="password"
@@ -35,42 +39,44 @@
         </div>
 
         <div class="form-input">
-          <label for="confirm-password">{{$t("signin.confirmPassword")}} <span>*</span></label>
+          <label for="confirm-password"
+            >{{ $t("signIn.confirmPassword") }} <span>*</span></label
+          >
           <Field
-            id="confrim-password"
-            name="confrim-password"
+            id="confirm-password"
+            name="confirm-password"
             type="password"
-            v-model="inputConfrimPassword"
+            v-model="inputConfirmPassword"
             :rules="[isRequired, somePassword]"
           />
-          <ErrorMessage name="confrim-password" />
+          <ErrorMessage name="confirm-password" />
         </div>
 
-        <button class="form-sendBtn">{{$t("signin.confirm")}}</button>
+        <button class="form-sendBtn">{{ $t("signIn.confirm") }}</button>
       </Form>
     </template>
   </registration-card>
 
   <error-alert v-if="confirmAndLeaveActivity">
     <button class="modal-buttons error" @click="closeWindowErrorModal">
-      {{$t("error.cancel")}}
+      {{ $t("error.cancel") }}
     </button>
     <button class="modal-buttons error" @click="confirmAndLeaveErrorModal">
-      {{$t("error.confirm")}}
+      {{ $t("error.confirm") }}
     </button>
   </error-alert>
 
-  <succes-alert v-if="createdSuccesActivity">
-    <button class="modal-buttons succes" @click="successModalGoToLogin">
-      {{$t("succes.confirm")}}
+  <success-alert v-if="createdSuccessActivity">
+    <button class="modal-buttons success" @click="successModalGoToLogin">
+      {{ $t("success.confirm") }}
     </button>
-  </succes-alert>
+  </success-alert>
 </template>
 
 <script>
 import { Field, Form, ErrorMessage } from "vee-validate";
 import ErrorAlert from "../alerts/ErrorAlert.vue";
-import SuccesAlert from "../alerts/SuccessAlert.vue";
+import SuccessAlert from "../alerts/SuccessAlert.vue";
 import router from "@/router";
 import RegistrationCard from "../card/RegistrationCard.vue";
 
@@ -80,17 +86,17 @@ export default {
     Form,
     ErrorMessage,
     ErrorAlert,
-    SuccesAlert,
+    SuccessAlert,
     RegistrationCard,
   },
   data() {
     return {
       inputLogin: "test",
       inputPassword: "test",
-      inputConfrimPassword: "test",
+      inputConfirmPassword: "test",
       confirmAndLeaveActivity: false,
       confirm: false,
-      createdSuccesActivity: false,
+      createdSuccessActivity: false,
       accountStatus: false,
     };
   },
@@ -98,14 +104,14 @@ export default {
     isRequired(inputValue) {
       if (inputValue && inputValue.trim()) {
         this.accountStatus = false;
-        this.createdSuccesActivity = false;
+        this.createdSuccessActivity = false;
         return true;
       }
       return "This is required";
     },
 
-    somePassword(confrimPassword) {
-      if (this.inputPassword === confrimPassword) {
+    somePassword(confirmPassword) {
+      if (this.inputPassword === confirmPassword) {
         return true;
       }
       return "the password is different";
@@ -116,7 +122,7 @@ export default {
       const user = {
         login: this.inputLogin,
         password: this.inputPassword,
-        confrimPassword: this.inputConfrimPassword,
+        confirmPassword: this.inputConfirmPassword,
         myGallery: [],
       };
 
@@ -124,18 +130,17 @@ export default {
 
       this.inputLogin = "";
       this.inputPassword = "";
-      this.inputConfrimPassword = "";
+      this.inputConfirmPassword = "";
     },
 
-    serachAccounts(users, curentUser) {
+    serachAccounts(users, currentUser) {
       const searchingUser = users.some(
-        (user) => user.login === curentUser.login
+        (user) => user.login === currentUser.login
       );
-
       if (searchingUser) {
         this.accountStatus = true;
       } else {
-        this.pushUsers(curentUser);
+        this.pushUsers(currentUser);
       }
     },
 
@@ -143,7 +148,7 @@ export default {
       const usersAccount = [];
       usersAccount.push(user);
       localStorage.setItem("users", JSON.stringify(usersAccount));
-      this.createdSuccesActivity = true;
+      this.createdSuccessActivity = true;
     },
 
     pushUsers(user) {
@@ -151,7 +156,7 @@ export default {
       users = JSON.parse(localStorage.getItem("users")) || [];
       users.push(user);
       localStorage.setItem("users", JSON.stringify(users));
-      this.createdSuccesActivity = true;
+      this.createdSuccessActivity = true;
     },
 
     confirmAndLeaveErrorModal() {
@@ -164,7 +169,7 @@ export default {
     },
     successModalGoToLogin() {
       router.push("/login");
-      this.createdSuccesActivity = false;
+      this.createdSuccessActivity = false;
     },
   },
   beforeRouteLeave(to, from, next) {
@@ -173,7 +178,7 @@ export default {
     if (
       this.inputLogin !== "" ||
       this.inputPassword !== "" ||
-      this.inputConfrimPassword !== ""
+      this.inputConfirmPassword !== ""
     ) {
       this.confirmAndLeaveActivity = true;
       next(confirm);
@@ -213,7 +218,7 @@ export default {
   margin: 1rem 0 0 1rem;
 }
 
-.succes {
+.success {
   padding: 0.5rem 2rem;
   margin-top: 1rem;
   border-radius: 2rem;

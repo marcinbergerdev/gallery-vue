@@ -20,7 +20,7 @@ export default {
     PhotosItem,
   },
   props: ["category"],
-  inject: ["menuLinks", "userLoggStatus"],
+  inject: ["menuLinks", "userLogStatus"],
   data() {
     return {
       numberOfPhotos: 20,
@@ -35,21 +35,18 @@ export default {
         url: "",
       };
 
+      //Osobiście jestem fanem używania if-a w JS..
+      if (newRoute === "dogs" || newRoute === "foods" || newRoute === "fox") {
+        photo.id = id;
+        photo.url = response.data.image;
+      }
       if (newRoute === "random") {
         photo.id = response.headers["picsum-id"];
         photo.url = response.request.responseURL;
-      } else if (newRoute === "dogs") {
-        photo.id = id;
-        photo.url = response.data.message;
-      } else if (newRoute === "cats") {
+      }
+      if (newRoute === "cats") {
         photo.id = response.data[0].id;
         photo.url = response.data[0].url;
-      } else if (newRoute === "foods") {
-        photo.id = id;
-        photo.url = response.data.image;
-      } else if (newRoute === "fox") {
-        photo.id = id;
-        photo.url = response.data.image;
       }
       this.newPhotos.push(photo);
     },
@@ -99,12 +96,12 @@ export default {
         currentRoute === "/home" ||
         currentRoute === "/home/" + this.category
       ) {
-        this.userLoggStatus(false);
+        this.userLogStatus(false);
       } else if (
         currentRoute === "/home/user" ||
         currentRoute === "/home/user/" + this.category
       ) {
-        this.userLoggStatus(true);
+        this.userLogStatus(true);
       }
     },
     scrollToList() {

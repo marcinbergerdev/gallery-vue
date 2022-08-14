@@ -11,7 +11,7 @@
       <div class="boxDecorations__right"></div>
     </article>
 
-    <a href="#myList" class="homepage-header__button">{{ $t("homePage")}}</a>
+    <a href="#myList" class="homepage-header__button">{{ $t("homePage") }}</a>
   </section>
 </template>
 
@@ -25,12 +25,7 @@ export default {
   methods: {
     homePageHidden(value) {
       const width = value.target.innerWidth;
-
-      if (width <= 768) {
-        this.hiddenSection = true;
-      } else {
-        this.hiddenSection = false;
-      }
+      this.hiddenSection = width <= 768 ? true : false;
     },
   },
   created() {
@@ -64,7 +59,7 @@ export default {
     background-color: var(--black);
     color: var(--white);
     border: 0;
-    box-shadow: 0 1px 1.7rem rgb(199, 197, 197);
+    box-shadow: 0 1px 1.7rem rgb(199, 197, 197); //do  zmiennej
   }
 }
 
@@ -76,7 +71,7 @@ export default {
     position: absolute;
     width: 50rem;
     height: 15rem;
-    background-color: #060606;
+    background-color: #060606; // jak używasz zmiennych w jednym miejscu to używaj w każdym
   }
 
   &__left {
@@ -89,7 +84,7 @@ export default {
     top: -33px;
     right: -242px;
     transform: rotate(29deg);
-    box-shadow: -3px 2px 2px rgba(70, 70, 70, 0.26);
+    box-shadow: -3px 2px 2px rgba(70, 70, 70, 0.26); //do  zmiennej
   }
 
   @media (orientation: landscape) {

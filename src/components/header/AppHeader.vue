@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     mobileNav() {
-      return { 'show-nav': this.scrollMobileNavigation };
+      return { "show-nav": this.scrollMobileNavigation };
     },
   },
   created() {
@@ -65,15 +65,13 @@ export default {
     min-height: 7rem;
     background-color: var(--black);
   }
-}
-
-.logo-languages {
-  display: flex;
-  align-items: center;
-}
-
-.show-nav {
-  background-color: var(--black);
-  transition: .3s ease-in-out;
+  .logo-languages {
+    display: flex;
+    align-items: center;
+  }
+  &.show-nav {
+    background-color: var(--black);
+    transition: 0.3s ease-in-out;
+  }
 }
 </style>

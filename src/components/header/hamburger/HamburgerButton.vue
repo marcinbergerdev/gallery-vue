@@ -74,23 +74,21 @@ export default {
   }
 }
 
-.active {
-  .hamburger {
-    &__box {
-      &-line {
-        transform: translateY(9px) rotate(45deg);
-        transition: all 0.3s 0.1s ease-in-out;
+.active .hamburger {
+  &__box {
+    &-line {
+      transform: translateY(9px) rotate(45deg);
+      transition: all 0.3s 0.1s ease-in-out;
 
-        &::before {
-          transform: translateX(-30px);
-          opacity: 0;
-          transition: all 0.3s ease-in-out;
-        }
+      &::before {
+        transform: translateX(-30px);
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+      }
 
-        &::after {
-          transform: translateY(-18px) rotate(90deg);
-          transition: all 0.3s ease-in-out;
-        }
+      &::after {
+        transform: translateY(-18px) rotate(90deg);
+        transition: all 0.3s ease-in-out;
       }
     }
   }

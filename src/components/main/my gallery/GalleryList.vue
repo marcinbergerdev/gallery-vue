@@ -25,7 +25,7 @@ export default {
       myPhotos: [],
     };
   },
-  inject: ["userLoggStatus"],
+  inject: ["userLogStatus"],
   methods: {
     photoDelete(id) {
       const currentUser = localStorage.getItem("usersAccount");
@@ -37,7 +37,7 @@ export default {
         (user) => user.login === currentUser
       );
       usersList.splice(userIndex, 1);
-      
+
       const photoIndex = selectedUser.myGallery.findIndex(
         (photo) => photo.id === id
       );
@@ -47,7 +47,7 @@ export default {
       localStorage.setItem("users", JSON.stringify(usersList));
     },
     ifUserIsLogged(currentRoute) {
-      if (currentRoute === "/home/user/mygallery") {
+      if (currentRoute === "/home/user/myGallery") {
         const currentUser = localStorage.getItem("usersAccount");
         const users = localStorage.getItem("users");
         const usersList = JSON.parse(users);
@@ -57,7 +57,7 @@ export default {
         );
 
         this.myPhotos = selectedUser.myGallery;
-        this.userLoggStatus(true);
+        this.userLogStatus(true);
       }
     },
   },
@@ -83,6 +83,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// Zawsze nadawaj klasę
 section {
   position: relative;
   width: 100%;

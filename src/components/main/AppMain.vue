@@ -2,7 +2,7 @@
   <main class="main-content">
     <nav-list
       :activation="this.activation"
-      :user-logg="this.userLogg"
+      :user-log="this.userLogg"
     ></nav-list>
     <router-view name="gallery"></router-view>
   </main>

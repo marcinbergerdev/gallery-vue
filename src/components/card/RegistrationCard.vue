@@ -15,35 +15,35 @@
 </template>
 
 <style lang="scss" scoped>
-.form-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-  background-color: var(--registration-bg);
-}
-
-.form-box {
-  width: 80%;
-  margin: 5rem 0;
-  border: 1px solid var(--black);
-  background-color: var(--white);
-  animation: registrationAnimation;
-  animation-duration: 0.2s;
-
-  @media (min-width: 768px) {
-    max-width: 45rem;
+.from {
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--registration-bg); //plus za używanie zmiennych
   }
-}
+  &-box {
+    width: 80%;
+    margin: 5rem 0;
+    border: 1px solid var(--black);
+    background-color: var(--white);
+    animation: registrationAnimation;
+    animation-duration: 0.2s;
 
-.form-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem 1.5rem;
-  background-color: var(--black);
+    @media (min-width: 768px) {
+      max-width: 45rem;
+    }
+  }
 
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    background-color: var(--black);
+  }
   &__button {
     padding: 0.5rem;
     font-size: 1.4rem;
@@ -55,5 +55,3 @@
   }
 }
 </style>
-
-

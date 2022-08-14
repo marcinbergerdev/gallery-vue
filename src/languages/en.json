@@ -14,7 +14,7 @@
     "confirm": "Log in"
   },
 
-  "signin": {
+  "signIn": {
     "logo": "Sign in",
     "header": "Registration",
     "errorMessage": "Account already exists",
@@ -32,8 +32,8 @@
     "cancel": "Cancel"
   },
 
-  "succes": {
-    "header": "Succes!",
+  "success": {
+    "header": "Success!",
     "description": "Account successfully created",
     "confirm": "OK"
   },
@@ -46,5 +46,5 @@
     "fox": "Fox"
   },
 
-  "signout": "Sign out"
+  "signOut": "Sign out"
 }

@@ -7,7 +7,6 @@
   </article>
 </template>
 
-
 <style lang="scss" scoped>
 @keyframes showPhoto {
   from {

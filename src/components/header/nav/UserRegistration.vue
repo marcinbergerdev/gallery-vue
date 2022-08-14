@@ -5,7 +5,7 @@
     }}</router-link>
 
     <router-link class="registration-link" to="/registration">{{
-      $t("signin.logo")
+      $t("signIn.logo")
     }}</router-link>
   </article>
 </template>

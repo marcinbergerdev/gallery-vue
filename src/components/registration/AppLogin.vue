@@ -1,19 +1,19 @@
 <template>
   <registration-card>
     <template #default>
-      <h1 class="header-text">{{$t("login.header")}}</h1>
+      <h1 class="header-text">{{ $t("login.header") }}</h1>
     </template>
 
     <template #messageError>
-      <p class="account-notexist" v-if="accountStatus">
-        {{$t("login.errorMessage")}}
+      <p class="account-not-exist" v-if="accountStatus">
+        {{ $t("login.errorMessage") }}
       </p>
     </template>
 
     <template #formValidation>
       <Form @submit="sendData">
         <div class="form-input">
-          <label for="login">{{$t("login.input")}}</label>
+          <label for="login">{{ $t("login.input") }}</label>
           <Field
             id="login"
             name="Login"
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-input">
-          <label for="password">{{$t("login.password")}}</label>
+          <label for="password">{{ $t("login.password") }}</label>
           <Field
             id="password"
             name="password"
@@ -36,7 +36,7 @@
           <ErrorMessage name="password" />
         </div>
 
-        <button class="form-sendBtn">{{$t("login.confirm")}}</button>
+        <button class="form-sendBtn">{{ $t("login.confirm") }}</button>
       </Form>
     </template>
   </registration-card>
@@ -62,6 +62,7 @@ export default {
     };
   },
   methods: {
+    //Rozumiem o co tu chodzi ale strasznie dziwnie to działa w mojej opinii
     isRequired(value) {
       if (value && value.trim()) {
         this.accountStatus = false;
@@ -96,16 +97,13 @@ export default {
     const user = {
       login: "admin",
       password: "admin",
-      confrimPassword: "admin",
+      confirmPassword: "admin",
       myGallery: [],
     };
 
-    if (users) {
-      if (users.length >= 2) {
-        this.inputLogin = "";
-        this.inputPassword = "";
-      }
-      return;
+    if (users.length >= 2) {
+      this.inputLogin = "";
+      this.inputPassword = "";
     } else {
       localStorage.setItem("users", JSON.stringify([user]));
     }
@@ -120,7 +118,7 @@ export default {
   color: var(--white);
 }
 
-.account-notexist {
+.account-not-exist {
   font-size: 1.5rem;
   margin-top: 1.9rem;
   text-align: center;
