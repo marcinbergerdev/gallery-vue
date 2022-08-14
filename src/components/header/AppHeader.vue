@@ -31,12 +31,14 @@ export default {
       const userHeight = window.innerHeight;
       const currentHeight = window.scrollY;
 
-      currentHeight >= userHeight ? (this.scrollMobileNavigation = true) : (this.scrollMobileNavigation = false);
+      currentHeight >= userHeight
+        ? (this.scrollMobileNavigation = true)
+        : (this.scrollMobileNavigation = false);
     },
   },
   computed: {
     mobileNav() {
-      return { 'show-nav': this.scrollMobileNavigation };
+      return { "show-nav": this.scrollMobileNavigation };
     },
   },
   created() {
@@ -72,6 +74,6 @@ export default {
 
 .show-nav {
   background-color: var(--black);
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 </style>
