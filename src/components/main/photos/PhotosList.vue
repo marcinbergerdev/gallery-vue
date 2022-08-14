@@ -36,9 +36,13 @@ export default {
       };
 
       //Osobiście jestem fanem używania if-a w JS..
-      if (newRoute === "dogs" || newRoute === "foods" || newRoute === "fox") {
+      if (newRoute === "foods" || newRoute === "fox") {
         photo.id = id;
         photo.url = response.data.image;
+      }
+      if (newRoute === "dogs") {
+        photo.id = id;
+        photo.url = response.data.message;
       }
       if (newRoute === "random") {
         photo.id = response.headers["picsum-id"];

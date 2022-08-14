@@ -1,5 +1,5 @@
 <template>
-  <h1 class="logo">Galerion</h1>
+  <h1 class="logo">Galeriom</h1>
 </template>
 
 <style lang="scss" scoped>
