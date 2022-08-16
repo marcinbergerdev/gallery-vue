@@ -1,9 +1,9 @@
 # This is my first website that I wrote, it is made with Vue.js. ✌
-# Live here 👉 https://testgaleri.netlify.app/
+# Live here 👉 https://galerion.netlify.app
 
 ## How it works?
   - Change languages.
-  - Create account (Login, Signin).
+  - Create account (Login, SignIn).
   - Select photos category.
   - After login add photos to your ouw gallery.
   - Delete photos.
@@ -13,7 +13,7 @@
   - Vue Routing.
   - API Axios (Photos)
   - Locale Storage
-  
+
 ## Project setup
 ```
 npm install
