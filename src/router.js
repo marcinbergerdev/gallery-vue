@@ -11,7 +11,7 @@ const AppRegistration = () =>
 const UserRegistration = () =>
    import("./components/header/nav/UserRegistration.vue");
 const UserAccount = () => import("./components/header/nav/UserAccount.vue");
-const UserSignOut = () => import("./components/header/nav/UserSignOut.vue");
+const UserSignOut = () => import("./components/header/nav/UserSignout.vue");
 
 const PhotosList = () => import("./components/main/photos/PhotosList.vue");
 const GalleryList = () =>
