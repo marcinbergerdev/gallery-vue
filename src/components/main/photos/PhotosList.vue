@@ -20,7 +20,7 @@ export default {
     PhotosItem,
   },
   props: ["category"],
-  inject: ["menuLinks", "userLoggStatus"],
+  inject: ["menuLinks", "userLogStatus"],
   data() {
     return {
       numberOfPhotos: 20,
@@ -99,12 +99,12 @@ export default {
         currentRoute === "/home" ||
         currentRoute === "/home/" + this.category
       ) {
-        this.userLoggStatus(false);
+        this.userLogStatus(false);
       } else if (
         currentRoute === "/home/user" ||
         currentRoute === "/home/user/" + this.category
       ) {
-        this.userLoggStatus(true);
+        this.userLogStatus(true);
       }
     },
     scrollToList() {

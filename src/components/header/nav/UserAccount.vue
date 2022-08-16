@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/home/user/mygallery">
+  <router-link to="/home/user/myGallery">
     <Icon class="user-icon" icon="ant-design:user-outlined" />
   </router-link>
 </template>

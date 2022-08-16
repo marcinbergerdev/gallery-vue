@@ -5,7 +5,7 @@
         v-for="link in menuLinks"
         :key="link.id"
         :id="link.id"
-        :user-logg="this.userLogg"
+        :user-log="this.userLog"
       ></nav-item>
     </ul>
   </nav>
@@ -24,7 +24,7 @@ export default {
       type: Boolean,
       required: true,
     },
-    userLogg: {
+    userLog: {
       type: Boolean,
     },
   },

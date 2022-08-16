@@ -5,7 +5,7 @@
     </template>
 
     <template #messageError>
-      <p class="account-notexist" v-if="accountStatus">
+      <p class="account-notExist" v-if="accountStatus">
         {{$t("login.errorMessage")}}
       </p>
     </template>
@@ -96,7 +96,7 @@ export default {
     const user = {
       login: "admin",
       password: "admin",
-      confrimPassword: "admin",
+      confirmPassword: "admin",
       myGallery: [],
     };
 
@@ -120,7 +120,7 @@ export default {
   color: var(--white);
 }
 
-.account-notexist {
+.account-notExist {
   font-size: 1.5rem;
   margin-top: 1.9rem;
   text-align: center;

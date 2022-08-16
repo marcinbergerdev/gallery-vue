@@ -6,7 +6,7 @@
   <router-view
     name="main"
     :activation="this.activation"
-    :user-logg="this.userStatus"
+    :user-log="this.userStatus"
   ></router-view>
 </template>
 
@@ -19,7 +19,7 @@ export default {
       toggleMenu: this.toggleHamburgerAndMenu,
       closeMenu: this.menuActivity,
       menuLinks: this.menuLinks,
-      userLoggStatus: this.userLoggedStatus,
+      userLogStatus: this.userLoggedStatus,
     };
   },
   data() {
@@ -98,10 +98,10 @@ export default {
   --registration-bg: #f4f4f4;
   --language-bg: #333;
   --homepage-bg: #4c4c4c;
-  --notfound-bg: #c0c0c0;
+  --notFound-bg: #c0c0c0;
 
   --photosBg-gradient: #b9b9b9;
-  --succes-txt: #0ca433;
+  --success-txt: #0ca433;
   --validation-error: #ff5858;
 }
 

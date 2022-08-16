@@ -2,7 +2,7 @@
   <main class="main-content">
     <nav-list
       :activation="this.activation"
-      :user-logg="this.userLogg"
+      :user-log="this.userLog"
     ></nav-list>
     <router-view name="gallery"></router-view>
   </main>
@@ -15,7 +15,7 @@ export default {
   components: {
     NavList,
   },
-  props: ["activation", "newPhotosList", "userLogg"],
+  props: ["activation", "newPhotosList", "userLog"],
 };
 </script>
 

@@ -11,14 +11,14 @@ export default {
       type: String,
       required: true,
     },
-    userLogg: {
+    userLog: {
       type: Boolean,
       required: false,
     },
   },
   computed: {
     categoryLink() {
-      return this.userLogg
+      return this.userLog
         ? { name: "user-category", params: { category: this.id } }
         : { name: "category", params: { category: this.id } };
     },

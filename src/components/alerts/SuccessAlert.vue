@@ -2,8 +2,8 @@
   <Teleport to="body">
     <dialog open>
       <article class="modal-container">
-        <h1 class="modal-container__header">{{$t("succes.header")}}</h1>
-        <p class="modal-container__text">{{$t("succes.description")}}</p>
+        <h1 class="modal-container__header">{{$t("success.header")}}</h1>
+        <p class="modal-container__text">{{$t("success.description")}}</p>
         <slot></slot>
       </article>
     </dialog>
@@ -30,7 +30,7 @@ dialog {
   text-align: center;
   &__header {
     font-size: 2.8rem;
-    color: var(--succes-txt);
+    color: var(--success-txt);
   }
 
   &__text {

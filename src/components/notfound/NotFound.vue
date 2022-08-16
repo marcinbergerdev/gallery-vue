@@ -1,8 +1,8 @@
 <template>
-  <main class='error-container'>
+  <main class="error-container">
     <header>
       <h1>
-         Page Not Found please go back <router-link to="/home">here</router-link>
+        Page Not Found please go back <router-link to="/home">here</router-link>
       </h1>
     </header>
   </main>
@@ -13,13 +13,12 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.error-container{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   min-height: 100vh;
-   padding: 0 5rem;
-   background-color: var(--notfound-bg);
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 5rem;
+  background-color: var(--notFound-bg);
 }
-
 </style>
