@@ -8,7 +8,7 @@
   - After login add photos to your ouw gallery.
   - Delete photos.
 
-## It's made?
+## Tech stack
   - Vue.js (Vue CLI).
   - Vue Routing.
   - API Axios (Photos)
