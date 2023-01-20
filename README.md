@@ -9,7 +9,7 @@
   - Delete photos.
 
 ## Tech stack
-  - Vue.js (Vue CLI).
+  - Vue.js (Option Api).
   - Vue Routing.
   - API Axios (Photos)
   - Locale Storage
